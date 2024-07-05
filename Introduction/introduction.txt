@@ -1,0 +1,198 @@
+1.Introduction about C:
+
+1.1 History of C Programming Language
+
+1.1.1 Origins and Development
+
+Developed by Dennis Ritchie at Bell Labs between 1969 and 1973.
+Evolved from earlier languages such as B and BCPL.
+Created for system programming and writing operating systems (notably UNIX).
+
+1.1.2 History
+
+1972: Introduction of the first version of C.
+1978: Publication of "The C Programming Language" by Brian Kernighan and Dennis Ritchie (K&R C).
+1989: ANSI C (C89) - Standardization by ANSI.
+1990: ISO C (C90) - International standardization.
+1999: C99 - Introduction of new features like inline functions, variable-length arrays.
+2011: C11 - Enhanced multi-threading support, Unicode support, improved performance.
+2018: C18 - Minor bug fixes and improvements to C11.
+
+1.2 Why Learn C Programming ?
+
+1.2.1 Foundational Language: C is the basis for many modern languages, making it easier to learn C++, Java, and Python.
+1.2.2 Performance and Efficiency: Known for high performance and resource management.
+1.2.3 Portability: Code written in C can be compiled on various platforms.
+1.2.4 Versatility: Used in a wide range of applications, from operating systems to embedded systems.
+1.2.5 Career Opportunities: Proficiency in C is highly valued in many tech fields, offering robust career prospects
+
+1.3 Standard C Libraries
+_________________________________________________put a table if possible______________________________________________________________________________________
+
+1.stdio.h (Standard Input and Output)
+Provides functions for input and output operations, including reading from the keyboard, writing to the screen, and file handling (e.g., printf, scanf, fopen, fclose).
+
+2.stdlib.h (Standard Library)
+Offers functions for memory allocation, process control, conversions, and others (e.g., malloc, free, exit, atoi).
+
+3.string.h (String Handling)
+Contains functions for manipulating arrays of characters, commonly known as strings (e.g., strlen, strcpy, strcat, strcmp).
+
+4.math.h (Mathematical Functions)
+Provides functions for performing mathematical operations (e.g., sin, cos, tan, sqrt, pow).
+
+5.time.h (Time and Date)
+Includes functions for manipulating and formatting time and date information (e.g., time, ctime, difftime, strftime).
+
+6.ctype.h (Character Type Functions)
+Contains functions for testing and mapping characters (e.g., isalpha, isdigit, islower, toupper).
+
+7.limits.h (Limits of Data Types)
+Defines the sizes and ranges of basic data types (e.g., INT_MAX, CHAR_MIN, UINT_MAX).
+
+8.float.h (Floating-Point Limits)
+Specifies the characteristics of floating-point types, including their precision and range (e.g., FLT_MAX, DBL_MIN).
+
+9.assert.h (Diagnostics)
+Provides a macro for adding diagnostics to programs (e.g., assert).
+
+10.errno.h (Error Handling)
+Defines macros for reporting and retrieving error conditions through error codes (e.g., errno, EDOM, ERANGE).
+
+___________________________________________________________________________________________________________________________________________________________________________________
+
+1.4 C Keywords
+
+_________________________________________________put a table if possible______________________________________________________________________________________
+
+
+Keyword	Description
+
+auto	Declares automatic local variables
+break	Exits from a loop or switch statement
+case	Defines a branch in a switch statement
+char	Declares a character variable
+const	Declares a constant variable
+continue-Skips to the next iteration of a loop
+default	Defines the default branch in a switch
+do	Starts a do-while loop
+double	Declares a double-precision floating point
+else	Defines an alternative branch in an if
+enum	Declares an enumerated type
+extern	Declares an external variable or function
+float	Declares a floating point variable
+for	Starts a for loop
+goto	Transfers control to a labeled statement
+if	Starts a conditional statement
+int	Declares an integer variable
+long	Declares a long integer variable
+register-Declares a register variable
+return	Returns from a function
+short	Declares a short integer variable
+signed	Declares a signed type variable
+sizeof	Returns the size of a data type
+static	Declares a static variable
+struct	Declares a structure
+switch	Starts a switch statement
+typedef	Creates a new data type name
+union	Declares a union
+unsigned-Declares an unsigned type variable
+void	Declares a function with no return value
+volatile-Declares a variable that can be modified in unexpected ways
+while	Starts a while loop
+
+
+___________________________________________________________________________________________________________________________________________________________________________________
+
+
+1.5 Escape sequence
+
+_________________________________________________put a table if possible______________________________________________________________________________________
+
+\a : Alert (bell)
+\b : Backspace
+\f : Form feed
+\n : Newline
+\r : Carriage return
+\t : Horizontal tab
+\v : Vertical tab
+\\ : Backslash
+\' : Single quote
+\" : Double quote
+\? : Question mark (used to avoid trigraph sequences)
+\0 : Null character (terminating character in strings)
+\nnn : Octal representation (where nnn are octal digits)
+\xhh : Hexadecimal representation (where hh are hexadecimal digits)
+
+___________________________________________________________________________________________________________________________________________________________________________________
+
+
+1.6 C compilers and editors
+
+There are around 5+ c editors are available like VS code,GNU,Turbo c,notepad etc.. 
+
+1.7 Folder Creation
+
+1.7.1 Create a folder name called Enn programs in local drive. For the use of our workouts
+
+1.8 Syntax 
+
+// Include necessary header files
+#include <headerfile.h>
+
+// Main function, entry point of the program
+int main() 
+
+{
+    
+// Statements inside the main function
+    
+
+// Return statement indicating successful termination
+   
+ return 0;
+
+}
+
+
+1.8.1 Get into enn C :
+
+example:
+
+// Include necessary header files
+#include <stdio.h>
+
+// Main function, entry point of the program
+int main() 
+
+{
+    // Statements inside the main function
+    printf("Hello, Enn World!\n");
+
+    // Return statement indicating successful termination
+    return 0;
+
+}
+
+Save the c program files with .c extensions
+
+Output: Hello, Enn World
+
+
+1.9 Compliation process
+
+
+------------------flowchart--------------------------------------------------------------------------------
+
+source code -- preprocessor(substitutions file(.i))----compiler(assembly code(.s))-----assembler(obj code(.o))------linker(exe file(.exe))
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
