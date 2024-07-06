@@ -1,0 +1,8 @@
+crete main.c function1.c function2.c function3.c function4.c 
+
+function print() {
+    printf I am from function 1 and my version in 1.0
+}
+
+only generate objcet file
+only compile object file
