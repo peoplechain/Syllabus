@@ -1,0 +1,4 @@
+Program with only printf statements wiht escape sequence possible like \n\t and allocation
+
+Show the stdio.h file where printf() is available
+
