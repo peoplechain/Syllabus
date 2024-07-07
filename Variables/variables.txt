@@ -1,0 +1,403 @@
+2. variables
+
+Variables are containers for storing data values, like numbers and characters.
+
+2.1 Variables creation
+
+Syntax:
+
+type variableName = value; (or)  type variable_name;
+
+2.1.2 Rules to declare:
+
+1.Must begin with a letter (uppercase or lowercase) or an underscore (_).
+2.Subsequent characters may be letters, digits, or underscores.
+3.Case-sensitive.
+4.Cannot use reserved keywords in C as variable names.
+5.Cannot contain spaces or special characters other than the underscore (_).
+6.No specific maximum length, but keep names reasonably short and meaningful.
+
+
+2.2 Data Types 
+
+--------------------------------------------------table----------------------------------------------------------------------------
+
+Data Type	Description	                                 Size (bytes)   	Range
+
+char	        Represents a single character                   	1	-128 to 127 (signed) / 0 to 255 (unsigned)
+int	        Represents integer values	                        4	-2,147,483,648 to 2,147,483,647 (signed)
+float	        Represents floating-point numbers (single precision)	4	~1.2E-38 to 3.4E+38 with ~6 decimal places of precision
+double	        Represents floating-point numbers (double precision)	8	~2.3E-308 to 1.7E+308 with ~15 decimal places of precision
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Example :
+
+int num = 6;
+char a;
+
+
+2.2.2 Format Specifiers
+
+--------------------------------table-------------------------------------------------------
+
+Format Specifier	Description	                       Example
+
+%d	           Integer format specifier.	               printf("%d", 10);
+%ld	           Long integer format specifier.	       printf("%ld", 1000000L);
+%f	           Float format specifier.	               printf("%f", 3.14159);
+%c	           Character format specifier.	               printf("%c", 'A');
+%s	           String format specifier.	               printf("%s", "Hello");
+%p	           Pointer format specifier (memory address).  0x0023FF35
+
+----------------------------------------------------------------------------------------------------
+
+
+2.2.2.1 Explanation:
+
+%d: Prints the integer value 10.
+%ld: Prints the long integer value 1000000.
+%f: Prints the float value 3.14159.
+%c: Prints the character 'A'.
+%s: Prints the string "Hello".
+%p: Prints the memory address, typically in hexadecimal format (e.g., 0x0).
+
+
+2.3 Input function
+
+2.3.1 Input Function scanf() in C:
+
+The scanf() function in C is used to read input from the standard input (keyboard by default) and store it in variables. It is typically used with format specifiers to specify the type of data being read.
+
+Syntax:
+
+scanf("format_specifiers", &variable1, &variable2, ...);
+
+
+Example: var.c
+
+#include <stdio.h>
+
+int main() {
+    int num;
+    float float_num;
+    char ch;
+    char str[50];
+    int num1 = 6;
+
+    // Input integer
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    // Input float
+    printf("Enter a float number: ");
+    scanf("%f", &float_num);
+
+    // Input character
+    printf("Enter a character: ");
+    scanf(" %c", &ch);  // Note the space before %c to skip leading whitespace
+
+    // Input string
+    printf("Enter a string (without spaces): ");
+    scanf("%s", str);
+
+    // Displaying input values
+    printf("\nInteger: %d\n", num);
+    printf("Float: %f\n", float_num);
+    printf("Character: %c\n", ch);
+    printf("String: %s\n", str);
+    printf("Memory address of num1 = %p",&num1);
+
+    return 0;
+}
+
+output:
+
+Enter an integer: 3
+Enter a float number: 3.5
+Enter a character: e
+Enter a string (without spaces): ennbook
+
+Integer: 3
+Float: 3.500000
+Character: e
+String: ennbook
+Memory address of num1 = 0x7ffffe385efc
+
+
+2.4 Scope of variables
+
+2.4.1 Global Variables in C
+
+Global variables in C are declared outside of any function and have a scope that extends throughout the entire program. They are accessible from any part of the program, including all functions, and retain their values until the program terminates.
+
+
+2.4.2 Local Variables in C
+
+Local variables in C are declared within a block or function and have a limited scope, existing only within the block in which they are defined. Once the block ends, local variables are destroyed, and their memory space is freed.
+
+
+2.5 static Keyword
+
+Definition:
+
+Static Global Variable: When static is used with a global variable declaration, it limits the scope of the variable to the file in which it is declared. It retains its value between function calls. Static avoids the need to rename one of the variables in each occurrence within the source code.
+
+
+2.6 extern Keyword
+
+Definition:
+
+Extern Global Variable: The extern keyword is used to declare a global variable that is defined in another file. It allows the variable to be accessed from multiple files within a program.
+
+
+
+Simple example:
+
+(scope1.c file)
+
+#include <stdio.h>
+
+// Global variable declaration
+int globalVar = 100;
+
+// Static global variable declaration (limited to this file)
+static int staticGlobalVar = 50;
+
+// Extern global variable declaration (defined in another file)
+extern int externGlobalVar;
+
+// Function prototype
+void func();
+
+int main() {
+    // Accessing and printing global variables
+    printf("Global Variable (main.c): %d\n", globalVar);          // Output: 100
+    printf("Static Global Variable (main.c): %d\n", staticGlobalVar);  // Output: 50
+    printf("Extern Global Variable (main.c): %d\n", externGlobalVar);  // Output: Value of externGlobalVar from anotherFile.c
+
+    // Calling function that uses a local variable
+    func();
+
+    return 0;
+}
+
+void func() {
+    // Local variable declaration
+    int localVar = 20;
+
+    // Accessing and printing local variable
+    printf("Local Variable (func): %d\n", localVar);  // Output: 20
+}
+
+
+(scope2.c file for external variable)
+
+
+// Definition of extern global variable
+int externGlobalVar = 200;
+
+output:
+
+Global Variable (main.c): 100
+Static Global Variable (main.c): 50
+Extern Global Variable (main.c): 200
+Local Variable (func): 20
+
+2.7 Type Casting in C
+
+Type casting in C refers to explicitly converting a variable from one data type to another. It allows you to change the interpretation of data temporarily or permanently.
+
+2.7.1 Usage:
+
+1.Implicit Type Conversion: 
+
+Automatically performed by the compiler when mixing different data types in expressions, following rules of promotion (e.g., int to float).
+
+2.Explicit Type Casting: 
+
+Manually specified by the programmer using casting operators to convert data types explicitly.
+
+
+Syntax: (type) expression;
+
+Example:type.c
+
+#include <stdio.h>
+
+int main() 
+{
+    char charVar = 'A';
+    int intVar = 65;
+    float floatVar = 3.14;
+    float result;
+
+    // Implicit type conversion (char to int)
+    intVar = charVar;
+    printf("Implicit Conversion - char to int: %d\n", intVar);  // Output: 65 (ASCII value of 'A')
+
+    // Explicit type casting (int to char)
+    charVar = (char)intVar;
+    printf("Explicit Conversion - int to char: %c\n", charVar);  // Output: A
+
+    // Implicit type conversion (int to float)
+    result = intVar;
+    printf("Implicit Conversion - int to float: %f\n", result);  // Output: 65.000000
+
+    // Explicit type casting (float to int)
+    intVar = (int)floatVar;
+    printf("Explicit Conversion - float to int: %d\n", intVar);  // Output: 3 (decimal part is truncated)
+
+    return 0;
+}
+
+
+
+output:
+
+Implicit Conversion - char to int: 65
+Explicit Conversion - int to char: A
+Implicit Conversion - int to float: 65.000000
+Explicit Conversion - float to int: 3
+
+2.8 Arrays
+
+Arrays in C are a collection of elements of the same data type stored in contiguous memory locations. They provide a convenient way to store and access multiple values of the same type under a single name.
+
+2.8.1 Characteristics:
+
+1.Fixed Size: 
+
+Arrays have a fixed size that must be specified when they are declared, and this size cannot be changed during runtime.
+
+2.Zero-based Indexing: 
+
+Elements in an array are accessed using an index, starting from 0 for the first element up to size - 1 for the last element of an array of size size.
+
+3.Contiguous Memory Allocation: 
+
+Elements of an array are stored in consecutive memory locations, which allows for efficient memory access.
+
+2.8.2 Types of Array:
+
+2.8.2.1 Single Dimensional Array
+
+Declaration and Initialization:
+
+dataType arrayName[arraySize];
+
+1.dataType: Type of elements in the array (int, float, char, etc.).
+2.arrayName: Name of the array.
+3.arraySize: Number of elements in the array.
+
+Example: array1.c
+
+#include <stdio.h>
+
+int main() {
+    // Declaration and initialization of an array of integers
+    int numbers[5] = {1, 2, 3, 4, 5};
+
+    // Accessing elements of the array
+    printf("First element: %d\n", numbers[0]);    // Output: 1
+    printf("Second element: %d\n", numbers[1]);   // Output: 2
+    printf("Third element: %d\n", numbers[2]);    // Output: 3
+
+    // Modifying an element of the array
+    numbers[2] = 10;
+    printf("Modified third element: %d\n", numbers[2]);   // Output: 10
+
+    return 0;
+}
+
+output:
+
+First element: 1
+Second element: 2
+Third element: 3
+Modified third element: 10
+
+Explanation:
+
+Array Declaration: int numbers[5]; declares an array numbers of integers with size 5.
+
+Array Initialization: int numbers[5] = {1, 2, 3, 4, 5}; initializes the array numbers with values {1, 2, 3, 4, 5}.
+
+Accessing Elements: Elements of the array are accessed using square brackets [] and the index of the element (e.g., numbers[0] accesses the first element).
+
+Modifying Elements: Array elements can be modified using their indices (e.g., numbers[2] = 10; modifies the third element to 10).
+
+
+2.8.2.2 Multi Dimensional Array
+
+Multidimensional arrays in C are arrays that have more than one dimension, typically represented as a matrix or a table of elements. They allow storing data in multiple rows and columns, providing a structured way to organize and access data.
+
+Declaration and Initialization:
+
+dataType arrayName[rowSize][colSize];
+
+1.dataType: Type of elements in the array (int, float, char, etc.).
+2.arrayName: Name of the array.
+3.rowSize: Number of rows in the array.
+4.colSize: Number of columns in the array.
+
+Example: array2.c
+
+#include <stdio.h>
+
+int main() {
+    // Declaration and initialization of a 2x2 array of integers
+    int matrix[2][2] = {
+        {1, 2},
+        {3, 4}
+    };
+
+    // Accessing elements of the array
+    printf("Element at matrix[0][0]: %d\n", matrix[0][0]);   // Output: 1
+    printf("Element at matrix[0][1]: %d\n", matrix[0][1]);   // Output: 2
+    printf("Element at matrix[1][0]: %d\n", matrix[1][0]);   // Output: 3
+    printf("Element at matrix[1][1]: %d\n", matrix[1][1]);   // Output: 4
+
+    // Modifying an element of the array
+    matrix[1][1] = 10;
+    printf("Modified element at matrix[1][1]: %d\n", matrix[1][1]);   // Output: 10
+
+    return 0;
+}
+
+output:
+
+Element at matrix[0][0]: 1
+Element at matrix[0][1]: 2
+Element at matrix[1][0]: 3
+Element at matrix[1][1]: 4
+Modified element at matrix[1][1]: 10
+
+Explanation:
+
+Array Declaration: int matrix[2][2]; declares a 2x2 array matrix of integers.
+
+Array Initialization: int matrix[2][2] = {{1, 2}, {3, 4}}; initializes the array matrix with values { {1, 2}, {3, 4} }.
+
+Accessing Elements: Elements of the array are accessed using two indices: row index and column index (e.g., matrix[0][0] accesses the element in the first row and first column).
+
+Modifying Elements: Array elements can be modified using their row and column indices (e.g., matrix[1][1] = 10; modifies the element in the second row and second column to 10).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
