@@ -1,0 +1,132 @@
+3 Constants in C
+
+In C programming, constants are fixed values that do not change during the execution of a program. They are used to represent values that are known and fixed at compile-time. Constants can be of various types, such as integer constants, floating-point constants, character constants, and string literals.
+
+3.1 Declaration 
+
+By Using const Keyword we have to declare the constant. Try to indicate the constant variable in uppercase, that follows trationally.
+
+Syntax - drawio
+3.1.1 example - vs code - const.c
+
+3.2 Enumerations (Enums) in C
+
+Enumerations, often referred to as enums, in C are user-defined data types used to assign names to integral constants.The enum keyword provides a handy way to create a sequence of constants in concise manner.
+
+-----------------------
+Syntax - drawio
+enum enumName {
+    enumeration_constants
+};
+
+enumName: Name of the enumeration type.
+enumeration_constants: Comma-separated list of constant identifiers (optional initializers).
+
+------------------------------
+
+3.2.1 example - vs code - enum.c
+
+Explanation:
+
+Enum Declaration: enum MATCH {    CRICKET,       FOOTBALL,     TENNIS    };
+
+Defines an enumeration named MATCH with constants RED, GREEN, and BLUE.
+By default, CRICKET is assigned 0, FOOTBALL is assigned 1, and TENNIS is assigned 2.
+
+
+3.2.2 Enum Variables
+
+Enum variables are variables declared with an enum type. They can store any of the enum constants defined within their enumeration type.
+
+---------------------------
+Syntax - drawio
+
+enum EnumName {
+    ENUM_CONST1,
+    ENUM_CONST2,
+    // Additional constants
+};
+
+enum EnumName: Defines a new enumeration type named EnumName.
+ENUM_CONST1, ENUM_CONST2: Enum constants, automatically assigned integer values starting from 0 by default unless explicitly initialized.
+--------------------------------
+
+3.2.3 example - vs code - enumvar.c
+
+Explanation:
+Enum Declaration: enum Weekday { MONDAY, TUESDAY, ... }; defines an enum Weekday with constants representing days of the week.
+Enum Variable: enum Weekday today = TUESDAY; declares today as a variable of type enum Weekday initialized to TUESDAY.
+Switch Case: Uses today in a switch statement to print the current day based on the enum constant.
+
+1.Enum Constants: Provide symbolic names to integral values within an enum.
+2.Enum Variables: Store values from the set of enum constants defined within their enum type
+
+
+3.3 Define directive
+
+The #define directive in C is a preprocessor directive used to define symbolic constants and macros. It instructs the preprocessor to replace all instances of the defined identifier with the specified token sequence throughout the code before compilation.
+
+---------------------------
+Syntax:
+
+#define identifier replacement
+
+identifier: Name of the constant or macro (usually written in uppercase).
+replacement: Value or token sequence to be substituted whenever identifier is encountered.
+
+----------------------------
+
+example - vs code - def.c
+
+Explanation:
+
+Constants: #define PI 3.14159 defines PI as a constant with the value 3.14159. 
+It replaces PI with 3.14159 wherever PI appears in the code.
+
+3.4 #ifdef, #endif Directives & Debuging
+
+The #ifdef and #endif directives are used for conditional compilation in C. They check if a macro is defined and control the inclusion of code based on the result.
+
+
+
+---------------------
+
+syntax:
+
+#ifdef macro_name
+   // Code to include if macro_name is defined
+#else
+   // Code to include if macro_name is not defined
+#endif
+
+#ifdef macro_name: Checks if macro_name is defined.
+#endif: Ends the conditional compilation block.
+
+----------------------
+
+Explanation:
+
+#ifdef DEBUG: Checks if the macro DEBUG is defined.
+printf("Debugging information\n"); is included in the program because DEBUG is defined (#define DEBUG 1).
+printf("Program continues...\n"); is always included regardless of the DEBUG macro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
