@@ -1,0 +1,257 @@
+4 Operations
+
+4.1 Ascii table
+
+4.2 Binary and Decimal Conversions in C
+
+4.2.1 Introduction to Number Systems
+
+Binary System: 
+
+A base-2 number system that uses two symbols, typically 0 and 1, to represent values. Each digit in a binary number is a power of 2.
+
+Decimal System: 
+
+A base-10 number system that uses ten symbols (0-9) to represent values. Each digit in a decimal number is a power of 10.
+
+4.2.2 Binary to decimal conversion:
+
+Example:
+
+The binary sequence (1101)2 has the decimal equivalent
+
+(1101)2 = 1 × 23 + 1 × 22 + 0 × 21 + 1 × 20
+        = 8 + 4 + 0 + 1
+        = (13)10
+
+4.2.3 Decimal to binary conversion:
+
+To convert Decimal to Binary “Repeated Division by 2” method can be used. Any Decimal number divided by 2 will leave a remainder of 0 or 1. Repeated division by 2 will leave a sequence of 0s and 1s that become the binary equivalent of the decimal number. 
+
+
+Example 
+
+Convert (65)10 into its equivalent 
+binary number
+
+drawio.com the examole pasted
+
+4.3 Operators in C
+
+Operators in C are special symbols or keywords that are used to perform operations on variables and values. C language supports a rich set of built-in operators that can be categorized based on the type of operation they perform.
+
+1. Arithmetic Operators
+
+example - vs code - arith.c
+
+These operators are used to perform basic arithmetic operations like addition, subtraction, multiplication, division, and modulus.
+
+2. Relational Operators
+Relational operators are used to compare two values. They return either true or false based on the comparison.
+
+example - vs code - relation.c
+
+--------------------------forward drawio--------------------------------------------------
+
+Operator	Description	Example
+==	Equal to	a == b
+!=	Not equal to	a != b
+>	Greater than	a > b
+<	Less than	a < b
+>=	Greater than or equal to	a >= b
+<=	Less than or equal to	a <= b
+
+------------------------------------------------------------------------------
+
+3. Logical Operators
+Logical operators are used to perform logical operations on boolean values.
+
+example - vs code - logical.c
+
+Truth Table for Logical Operators
+
+--------------------------------------table----------------------------------------
+1. Logical AND (&&)
+A	B	A && B
+false	false	false
+false	true	false
+true	false	false
+true	true	true
+
+2. Logical OR (||)
+A	B	A || B
+false	false	false
+false	true	true
+true	false	true
+true	true	true
+
+3. Logical NOT (!)
+A	!A
+false	true
+true	false
+------------------------------------------------------------------------------
+
+Explanation:
+
+Logical AND (&&): A && B is true only if both A and B are true.
+Logical OR (||): A || B is true if either A or B (or both) are true.
+Logical NOT (!): !A is true if A is false, and !A is false if A is true.
+
+--------------------------forward drawio--------------------------------------------------
+
+Operator	Description	Example
+&&	Logical AND	a && b
+`		`
+!	Logical NOT	!a
+
+------------------------------------------------------------------------------
+
+
+4. Assignment Operators
+
+Assignment operators are used to assign values to variables.
+
+example - vs code - assign.c
+
+--------------------------forward drawio--------------------------------------------------
+Operator	Description	Example
+=	Simple assignment	a = b
++=	Add and assign	a += b
+-=	Subtract and assign	a -= b
+*=	Multiply and assign	a *= b
+/=	Divide and assign	a /= b
+%=	Modulus and assign	a %= b
+<<=	Left shift and assign	a <<= b
+>>=	Right shift and assign	a >>= b
+&=	Bitwise AND and assign	a &= b
+`	=`	Bitwise OR and assign
+^=	Bitwise XOR and assign	a ^= b
+------------------------------------------------------------------------------
+
+5. Ternary Operator
+
+The ternary operator is a shorthand for if-else statements.
+
+example - vs code - ternary.c
+
+--------------------------forward drawio--------------------------------------------------
+Operator	Description	Example
+? :	Ternary conditional	condition ? expr1 : expr2
+------------------------------------------------------------------------------
+
+6. Unary Operators
+
+Unary operators operate on a single operand.
+
+example - vs code - unary.c
+
+--------------------------forward drawio--------------------------------------------------
+
+Operator	Description	Example
++	Unary plus	+a
+-	Unary minus	-a
+++	Increment	++a or a++
+--	Decrement	--a or a--
+!	Logical NOT	!a
+~	Bitwise NOT	~a
+&	Address of	&a
+*	Pointer dereference	*p
+------------------------------------------------------------------------------
+
+7. Bitwise Operators
+
+Bitwise operators are used to perform bit-level operations on integers.Bitwise operators manipulate bits of operands at the binary level. They are used to perform operations on individual bits of integer operands.
+
+example - vs code - bit.c
+
+1. Bitwise AND (&)
+
+Definition: Performs a bitwise AND operation between corresponding bits of two operands. The result is 1 only if both bits are 1.
+
+Example: a & b
+
+2. Bitwise OR (|)
+
+Definition: Performs a bitwise OR operation between corresponding bits of two operands. The result is 1 if at least one of the bits is 1.
+
+Example: a | b
+
+3. Bitwise XOR (^)
+
+Definition: Performs a bitwise XOR (exclusive OR) operation between corresponding bits of two operands. The result is 1 if the bits are different.
+
+Example: a ^ b
+
+4. Bitwise NOT (~)
+
+Definition: Performs a bitwise NOT operation on each bit of the operand, flipping all bits (0s become 1s and 1s become 0s).
+
+Example: ~a
+
+5. Left Shift (<<)
+
+Definition: Shifts the bits of the left operand left by the number of positions specified by the right operand. Zeros are shifted into the low-order bits.
+
+Example: a << b
+
+6. Right Shift (>>)
+
+Definition: Shifts the bits of the left operand right by the number of positions specified by the right operand. For unsigned types, zeros are shifted into the high-order bits. For signed types, the result depends on the implementation (typically, sign extension).
+
+Example: a >> b
+
+--------------------------forward drawio--------------------------------------------------
+
+
+Operator	Description	Example
+&	Bitwise AND	a & b
+`	`	Bitwise OR
+^	Bitwise XOR (exclusive OR)	a ^ b
+~	Bitwise NOT (one's complement)	~a
+<<	Left shift	a << b
+>>	Right shift	a >> b
+
+------------------------------------------------------------------------------
+
+8. Special Operators
+
+Special operators include sizeof, comma, and member access operators.
+
+example - vs code - special.c
+
+--------------------------forward drawio--------------------------------------------------
+
+
+Operator	Description	Example
+sizeof	Size of data type or variable	sizeof(int)
+,	Comma operator	a = (b = 3, b + 2)
+
+------------------------------------------------------------------------------
+
+
+4.4 Operator Precedence in C
+
+Operator precedence determines the order in which operators are evaluated in expressions. Operators with higher precedence are evaluated before operators with lower precedence. When operators have the same precedence, their associativity (left-to-right or right-to-left) determines the order of evaluation.
+
+example - vs code - precedence.c
+
+Precedence Levels in C
+
+Postfix Operators: (), [], ., ->, ++, --
+Unary Operators: +, -, !, ~, ++, --, * (dereference), & (address-of), sizeof
+Multiplicative Operators: *, /, %
+Additive Operators: +, -
+Shift Operators: <<, >>
+Relational Operators: <, <=, >, >=
+Equality Operators: ==, !=
+Bitwise AND: &
+Bitwise XOR: ^
+Bitwise OR: |
+Logical AND: &&
+Logical OR: ||
+Conditional Operator: ? :
+Assignment Operators: =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
+
+
+
+
