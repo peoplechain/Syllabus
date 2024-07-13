@@ -1,0 +1,333 @@
+6 Functions
+
+6.1 Define Function
+
+A function is a block of code that performs a specific task. It is designed to be reusable, so once a function is written, it can be called multiple times from different parts of a program. Functions help in organizing code into manageable sections, making it more readable, maintainable, and easier to debug.
+
+6.2 Why Use Functions
+
+Modularity: Functions break down complex problems into simpler parts.
+Reusability: Once a function is written, it can be reused across multiple programs.
+Maintainability: Functions make it easier to update and maintain the code.
+Abstraction: Functions allow for higher-level programming by hiding implementation details.
+
+6.3 Function Declaration
+
+Function declaration, also known as a function prototype, tells the compiler about the function's name, return type, and parameters. It is usually placed before the main function or in a header file.
+
+it has two types of return type available in function, 
+1.void
+2.int
+
+
+
+
+
+6.3.1 Void type function 
+
+
+6.3.1.1 Function Declaration
+
+Function declaration, also known as a function prototype, tells the compiler about the function's name, return type, and parameters. It is usually placed before the main function or in a header file.
+
+
+----------------------------syntax----------------------
+
+void function_name(parameter_list);
+
+-----------------------------------------------------
+
+
+6.3.1.2 Function Definition
+
+A function definition provides the actual body of the function. It includes the code that specifies what the function does.
+
+
+----------------------------syntax----------------------
+
+void function_name(parameter_list) {
+    // body of the function
+}
+
+-----------------------------------------------------
+
+
+
+6.3.2 int type function 
+
+6.3.2.1 Function Declaration
+
+Function declaration, also known as a function prototype, tells the compiler about the function's name, return type, and parameters. It is usually placed before the main function or in a header file.
+
+----------------------------syntax----------------------
+
+int function_name(parameter_list);
+
+-----------------------------------------------------
+
+6.3.1.2 Function Definition
+
+A function definition provides the actual body of the function. It includes the code that specifies what the function does.
+
+----------------------------syntax----------------------
+
+int function_name(parameter_list) {
+    // body of the function
+    return integer_value;
+}
+
+
+-----------------------------------------------------
+
+
+--------example - vs code - func.c ------------------
+
+Explanation:
+
+1. Start main Function Execution:
+
+Execution begins in the main function.
+
+2.Call greet Function:
+
+main calls greet().
+Execution moves to the greet function.
+
+3.Inside greet Function:
+
+Print Hello, World!\n to the console.
+Return from greet to main.
+
+4.Call square Function:
+
+main calls square().
+Execution moves to the square function.
+
+5.Inside square Function:
+
+Compute 5 * 5 and store the result (25) in the variable s.
+Return the value 25 from square to main.
+
+6.Store Return Value:
+
+Back in main, store the returned value (25) in the variable num.
+
+7.Print Statement:
+
+Print Hello, World! followed by the value of num (which is 25) to the console.
+
+8.Return from main:
+
+Return 0 from main, indicating successful completion of the program.
+
+
+6.4 Passing Arguments 
+
+6.4.1 Introduction to Function Arguments
+
+Function arguments, also known as parameters, allow you to pass data to functions. They enable functions to operate on different data without changing their code, promoting reusability and modularity.
+
+
+6.4.2 Parameter Passing Techniques
+
+1.Call by Value
+2.Call by Reference
+
+6.4.2.1 Call by Value
+
+In call by value, a copy of the actual parameter's value is passed to the function. Changes made to the parameter inside the function do not affect the actual parameter.
+
+
+----------------------syntax----------------------
+
+return_type function_name(parameter_type parameter) {
+    // function body
+}
+
+----------------------------------------------------
+
+----------------------example - vs code - passval.c ----------
+
+Explanation:
+
+Start main function execution.
+Initialize num with the value 5.
+Call addTen with num as an argument.
+Inside addTen, the parameter n is a copy of num (value 5).
+Modify n to 15 (n + 10).
+Print Value inside function: 15.
+Return from addTen to main.
+Print Value of num after function call: 5.
+Return 0 from main.
+
+6.4.2.2 Call by Reference
+
+In call by reference, a reference (address) to the actual parameter is passed to the function. Changes made to the parameter inside the function affect the actual parameter.
+
+----------------------syntax----------------------
+
+return_type function_name(parameter_type *parameter) {
+    // function body
+}
+
+----------------------------------------------------
+
+----------------------example - vs code - passref.c ----------
+
+Explanation:
+
+Start main function execution.
+Initialize num with the value 5.
+Call addTen with the address of num as an argument (&num).
+Inside addTen, the parameter n is a pointer to num.
+Dereference n and modify the value to 15 (*n + 10).
+Print Value inside function: 15.
+Return from addTen to main.
+Print Value of num after function call: 15.
+Return 0 from main.
+
+
+6.4 Recursive Function
+
+Recursion is a powerful concept in programming where a function calls itself directly or indirectly to solve a problem. It allows problems to be solved in simpler terms, often leading to elegant and compact code solutions.
+
+6.4.1 Recursive Function Structure
+
+A recursive function typically consists of two parts:
+
+Base Case: A condition that terminates the recursion.
+Recursive Case: A condition where the function calls itself with modified arguments.
+
+----------------------syntax----------------------
+
+return_type function_name(parameters) {
+    if (base_case_condition) {
+        // base case: termination condition
+        return base_value;
+    } else {
+        // recursive case: function calls itself
+        return function_name(modified_parameters);
+    }
+}
+
+----------------------------------------------------
+
+----------------------example - vs code - funrec.c ----------
+
+Explanation:
+
+Start main function execution.
+Initialize num with the value 5.
+Call factorial function with num as an argument.
+Inside factorial function:
+Check if n is 0 or 1 (base case).
+Otherwise, compute n * factorial(n - 1) (recursive case).
+Recursively call factorial with n - 1 until base case is reached.
+Return the computed factorial value back to the caller.
+Print the result in main.
+
+
+6.5 Custom function headers
+
+Introduction to Custom Header Files
+
+Custom header files in C allow you to organize your code by placing function declarations, definitions, and other declarations in a separate file. This promotes modularity and reusability of code across multiple source files.
+
+6.5.1 Structure of a Custom Header File
+
+A custom header file typically contains:
+
+Function declarations
+Type definitions (structs, enums, etc.)
+
+----------------------syntax----------------------
+
+1.Custom header file saved with .h extension
+
+// header.h
+
+// Function declaration
+return_type function_name(parameter_type parameter);
+
+// Function definition
+return_type function_name(parameter_list) {
+    // body of the function
+}
+
+
+
+2. In main file include the custom function header file as a header
+
+// custom.c
+
+#include <stdio.h>
+#include "header.h"  // Include custom header file
+
+----------------------------------------------------
+
+----------------------example - vs code - custom.c , header.h ----------
+
+Explanation:
+
+Start main function execution.
+Include the header.h file, which contains the declaration & defination of the SquareArea function.
+Define the side variable with a value of 5.0.
+Call the calculateSquareArea function with side as an argument.
+Inside calculateSquareArea, compute the area of the square (side * side).
+Return the computed area to main.
+Print the area of the square using printf.
+End of the main function with return 0.
+
+
+6.6 Function Restriction
+
+
+In C programming, the static keyword can be used to restrict the visibility and accessibility of functions to the current source file. This can be useful for encapsulating functionality that should only be accessed within a specific module or file.
+
+----------------------syntax----------------------
+
+static <return_type> <function_name>(<parameters>) {
+    // Function body
+    // Restricted operations or computations
+}
+
+----------------------------------------------------
+
+----------------------example - vs code - static.c ----------
+
+Explanation:
+
+Function Declaration (static void restrictedFunction(int secretCode)):
+
+Declares a static function named restrictedFunction that takes an int parameter secretCode.
+The static keyword restricts the visibility of restrictedFunction to the current source file (main.c in this case), preventing it from being accessed from other files.
+
+Function Definition ({ ... }):
+
+Inside restrictedFunction, it checks if secretCode equals 1234.
+If true, it prints "Access granted! Performing restricted operation..." and may perform additional restricted operations.
+If false, it prints "Access denied!" indicating unsuccessful access.
+
+Main Function (int main() { ... }):
+
+Defines a variable code with the value 1234, which simulates a secret code for accessing restrictedFunction.
+Calls restrictedFunction(code) to invoke the function and pass code as an argument.
+
+Output:
+
+Depending on the value of code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

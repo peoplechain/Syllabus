@@ -124,7 +124,7 @@ Operator	Description	Example
 <<=	Left shift and assign	a <<= b
 >>=	Right shift and assign	a >>= b
 &=	Bitwise AND and assign	a &= b
-`	=`	Bitwise OR and assign
+|=	Bitwise OR and assign
 ^=	Bitwise XOR and assign	a ^= b
 ------------------------------------------------------------------------------
 
@@ -251,7 +251,7 @@ Logical AND: &&
 Logical OR: ||
 Conditional Operator: ? :
 Assignment Operators: =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
-
+Comma Operator: ,
 
 
 

@@ -407,7 +407,7 @@ Definition:
 
 The break statement is a control flow statement in programming languages like C, C++, and others. It is used to immediately terminate the execution of the innermost loop (for, while, or do-while) or switch statement in which it appears. When encountered, break causes control to exit the loop or switch statement and resume execution at the next statement after the loop or switch.
 
---------------------------------syntax------------------------------
+syntax:
 
 break;
 
@@ -420,7 +420,7 @@ Definition:
 
 The continue statement is a control flow statement used to skip the current iteration of a loop (for, while, or do-while) and proceed to the next iteration. It causes the loop to immediately jump to the next iteration's condition check or loop body execution, bypassing any remaining code within the current iteration.
 
---------------------------------syntax------------------------------
+syntax:
 
 continue;
 
