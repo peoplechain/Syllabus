@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="test"/>
+        <attribute name="authors" value="Admin"/>
+        <attribute name="about" value="about"/>
+        <attribute name="saved" value="2024-07-14 05:36:40 PM"/>
+        <attribute name="created" value="QWRtaW47REVTS1RPUC1WSDlSMFYxOzIwMjQtMDctMTM7MDM6NTk6NTAgUE07MjgzNw=="/>
+        <attribute name="edited" value="QWRtaW47REVTS1RPUC1WSDlSMFYxOzIwMjQtMDctMTQ7MDU6MzY6NDAgUE07MzsyOTQ0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="program starts here"/>
+            <comment text="next variable intialaization"/>
+            <declare name="a" type="Integer" array="False" size=""/>
+            <comment text="next variable declaration"/>
+            <assign variable="a" expression="2"/>
+            <comment text="checks the condition"/>
+            <if expression="a == 2">
+                <then>
+                    <comment text="execute when condition true"/>
+                    <output expression="&quot;hi&quot;" newline="True"/>
+                </then>
+                <else>
+                    <comment text="execute when condition fails"/>
+                    <output expression="&quot;hello&quot;" newline="True"/>
+                </else>
+            </if>
+            <comment text="end of the program"/>
+        </body>
+    </function>
+</flowgorithm>

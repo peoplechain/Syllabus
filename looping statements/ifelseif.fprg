@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Admin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-14 05:46:19 PM"/>
+        <attribute name="created" value="QWRtaW47REVTS1RPUC1WSDlSMFYxOzIwMjQtMDctMTM7MDQ6MDQ6NDAgUE07MjgyNw=="/>
+        <attribute name="edited" value="QWRtaW47REVTS1RPUC1WSDlSMFYxOzIwMjQtMDctMTQ7MDU6NDY6MTkgUE07NDsyOTUy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="declare a variable a"/>
+            <declare name="a" type="Integer" array="False" size=""/>
+            <comment text="declare a variable b "/>
+            <declare name="b" type="Integer" array="False" size=""/>
+            <comment text="declare a value of a"/>
+            <assign variable="a" expression="2"/>
+            <comment text="declare a value of b"/>
+            <assign variable="b" expression="3"/>
+            <comment text="checking the condition"/>
+            <if expression="a = 10">
+                <then>
+                    <comment text="condition 1 matches it will executed"/>
+                    <output expression="&quot;hi&quot;" newline="True"/>
+                </then>
+                <else>
+                    <comment text="condition not matched means goto else if block"/>
+                    <if expression="a = 2">
+                        <then>
+                            <comment text="condition 2 matches means it will executed"/>
+                            <output expression="&quot;hello&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <comment text="condition 2 fails means it will be executed"/>
+                            <output expression="&quot;ennbook&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <comment text="end of the program"/>
+        </body>
+    </function>
+</flowgorithm>
