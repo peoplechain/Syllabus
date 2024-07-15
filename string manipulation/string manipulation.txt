@@ -1,0 +1,506 @@
+8 String Manipulation
+
+8.1 Reading Strings in C
+
+Definition:
+
+Reading strings in C involves accepting a sequence of characters from user input, typically through functions such as scanf or gets.
+
+
+8.1.1 Using scanf:
+
+scanf is a standard input function used to read formatted input.
+
+
+-------------------------Syntax: -------------------------------
+
+scanf("%s", string_variable);
+
+Components:
+
+%s: Format specifier for strings.
+string_variable: A character array where the input string will be stored.
+
+
+-----------------------------------------------------------------
+
+8.1.2 Using fgets (recommended):
+
+fgets reads a line from the specified stream and stores it into the string.
+
+------------------------------Syntax: -------------------------
+
+fgets(string_variable, size, stdin);
+
+Components:
+
+string_variable: A character array where the input string will be stored.
+size: The maximum number of characters to be read.
+
+------------------------------------------------------------------------
+
+8.1.3 Using puts:
+
+Definition: 
+
+puts writes a string to the standard output (usually the screen) followed by a newline character.
+
+-----------------------------Syntax: ---------------------------------
+
+puts(string);
+
+string: A pointer to the null-terminated string to be printed.
+
+
+------------------------------------------------------------------
+
+-----------------------------------vs code - read.c------------
+
+Explanation:
+
+1.Program Start:
+
+The main function is invoked, starting the execution of the program.
+
+2.Variable Declaration:
+
+A character array str of size 51 is declared to store the input strings.
+
+3.First Input Prompt:
+
+The program prints: \nEnter up to 50 characters with spaces:\n.
+
+4.Reading Input with fgets:
+
+The function fgets(str, sizeof(str), stdin) is called.
+fgets reads up to 50 characters (or until a newline character is encountered) from the standard input (stdin) and stores it in the str array.
+
+5.Output of fgets Input:
+
+The program prints: fgets() read:.
+The function puts(str) is called, which prints the string stored in str followed by a newline.
+
+6.Second Input Prompt:define 
+
+The program prints: \nEnter up to 50 characters with spaces:\n.
+
+7.Reading Input with scanf:
+
+The function scanf("%s", str) is called.
+scanf reads a single word (up to the first whitespace character) from the standard input (stdin) and stores it in the str array.
+
+8.Output of scanf Input:
+
+The program prints: scanf() read: followed by the string stored in str.
+
+9.Program Termination:
+
+The main function returns 0, indicating the successful completion of the program.
+
+
+8.2 Copy the strings
+
+8.2.1 Standard strcpy()
+
+Copies the entire source string, including the null terminator, to the destination.
+
+Useful when you want to copy a complete string.
+
+----------------------syntax--------------------------------
+
+strcpy(target_array, source_array);
+
+-----------------------------------------------------------
+
+8.2.2 strncpy()
+
+Copies up to n characters from the source string to the destination.
+If the source string is shorter than n characters, the remaining characters in the destination are padded with null characters ('\0').
+
+
+----------------------syntax--------------------------------
+
+strncpy(target_array, source_array, length);
+
+-----------------------------------------------------------
+
+8.2.3 strlen()
+
+Calculates the length of a string by counting the number of characters before the null terminator ('\0').
+
+----------------------syntax--------------------------------
+
+strlen(source_array);
+
+-----------------------------------------------------------
+
+---------------------------vs code - cpy.c------------------------
+
+Explanation:
+
+1.Program Start:
+
+The main function is invoked, starting the execution of the program.
+
+2.Variable Declarations:
+
+source: A character array initialized with the string "Hello, World!".
+
+3.destination: 
+
+An empty character array of size 50 to store the copied string using strcpy.
+
+4.destination_n: 
+
+An empty character array of size 50 to store the partially copied string using strncpy.
+
+5.length: 
+
+An integer variable to store the length of the string calculated by strlen.
+
+6.Copying Using strcpy:
+
+strcpy(destination, source); copies the entire source string to destination.
+
+7.The program prints: 
+
+Copied using strcpy: Hello, World!.
+
+8.Copying Using strncpy:
+
+strncpy(destination_n, source, 5); copies the first 5 characters of source to destination_n.
+destination_n[5] = '\0'; manually adds a null terminator to the end of the copied string in destination_n.
+The program prints: Copied using strncpy: Hello.
+
+9.Calculating Length Using strlen:
+
+length = strlen(source); calculates the length of source, excluding the null terminator ('\0').
+The program prints: Length of source string: 13.
+
+10.Program Termination:
+
+The main function returns 0, indicating the successful completion of the program.
+
+
+8.3 Joining strings:
+
+In C, there isn't a built-in function specifically called "joining string function" like there might be in other languages. However, we commonly achieve string concatenation (joining strings together) using various methods. Let's define these methods and provide a simple example program:
+
+8.3.1 Methods of String Concatenation Using strcat:
+
+Definition: 
+
+strcat appends a copy of the source string to the destination string.
+
+-------------------------------syntax---------------------------
+
+strcat(target_string,source_string);
+
+--------------------------------------------------------------
+
+8.3.3 Using strncat:
+
+appends a specified number of characters from source string to targeted string.
+
+-------------------------------syntax---------------------------
+
+strncat(target_string, source_string, start_length_from_source;
+
+--------------------------------------------------------------
+
+8.3.4 Using strncat by places:
+
+appends a specified number of characters from source string starting from places to target string.
+
+
+-------------------------------syntax---------------------------
+
+strncat(target_string, (source_string + start_length_from_source) , End_length ;
+
+--------------------------------------------------------------
+
+---------------------------------vs code -join.c---------------------
+
+
+Explanation:
+
+1.Program Start:
+
+The main function is invoked, starting the execution of the program.
+
+2.Variable Declarations:
+
+s1, s2, s3, s4, s5, s6: Character arrays (char[]) used to store strings.
+
+3.Example 1: strncat(s1, s2, 3);
+
+s1 is initialized with "Hello" and s2 with " Ennbook".
+strncat(s1, s2, 3); appends the first 3 characters of s2 (" Enn") to s1, resulting in "Hello Enn".
+printf("Result after strncat: %s\n", s1); prints the modified s1: "Hello Enn".
+
+4.Example 2: strncat(s3, (s4 + 1), 4);
+
+s3 is initialized with "Hello" and s4 with " Ennbook".
+strncat(s3, (s4 + 1), 4); appends 4 characters from s4 starting from index 1 ("Ennb") to s3, resulting in "Hello Ennbook".
+printf("Result after strncat: %s\n", s3); prints the modified s3: "Hello Ennbook".
+
+5.Example 3: strcat(s5, s6);
+
+s5 is initialized with "hi " and s6 with "Copy me!".
+strcat(s5, s6); concatenates s6 ("Copy me!") to the end of s5, resulting in s5 containing "hi Copy me!".
+printf("Result after strcat: %s\n", s5); prints s5, resulting in "hi Copy me!".
+
+6.Program Termination:
+
+The main function returns 0, indicating the successful execution of the program.
+
+
+
+8.4 Find Sub Strings
+
+8.4.1 strstr()
+
+Purpose: 
+
+Searches for the first occurrence of substring sub within the string str.
+
+-------------------------------------syntax------------------------
+
+strstr(str, sub);
+
+---------------------------------------------------------------
+
+8.4.2 Index Calculation:
+
+Purpose: 
+
+Calculates the index (position) in str where sub starts.
+
+-------------------------------------syntax------------------------
+
+strstr(str, sub) - str;
+
+---------------------------------------------------------------
+
+8.4.3 String comparision:
+
+n C, strcmp is used to compare two strings. It returns an integer value indicating whether the strings are equal or if one is greater or less than the other. Here's how to use strcmp in C: If strcmp returns 0, it means the two strings are equal.
+
+-------------------------------------syntax------------------------
+
+strcmp( sub,"Finding_String");
+
+---------------------------------------------------------------
+
+Example:
+
+strcmp(sub, "Time")
+
+1.sub = "Time"
+"Time" = "Time"
+Result: 0
+Explanation: Both strings are identical, so strcmp() returns 0.
+strcmp(sub, "time")
+
+2.sub = "Time"
+"time" = "time"
+Result: -1
+Explanation: The comparison is case-sensitive. In dictionary order, uppercase letters come before lowercase letters. Therefore, "Time" is considered less than "time", and strcmp() returns -1.
+strcmp(sub, "TIME")
+
+3.sub = "Time"
+"TIME" = "TIME"
+Result: 1
+Explanation: Similar to the previous case, but in this case, "TIME" is considered greater than "Time" because uppercase letters come after lowercase letters in dictionary order. Hence, strcmp() returns 1.
+
+
+----------------------------------vs code camp.c--------------------
+
+
+
+Explanation:
+
+1.Initialization:
+
+Define two strings:
+str: "Have A Nice Day"
+sub: "Nice"
+
+2.Using strstr():
+
+Check if the substring "Nice" exists within the string str using strstr(str, sub).
+If strstr(str, sub) returns NULL, print "Substring "Nice" Not Found".
+Otherwise, if strstr(str, sub) returns a non-null pointer, print:
+"Substring "Nice" Found at <address>"
+Calculate and print the index of the substring using strstr(str, sub) - str.
+
+3.Using strcmp():
+
+Compare the string sub with different cases of "Nice" using strcmp().
+Print the results of these comparisons:
+"%s Versus \"Nice\": %d\n"
+"%s Versus \"nice\": %d\n"
+"%s Versus \"NICE\": %d\n"
+
+4.Output:
+
+The program outputs whether the substring "Nice" is found in str, its position if found, and the results of the comparisons between sub and "Nice", "nice", and "NICE".
+
+
+8.5 String Validation
+
+
+Character Classification and Conversion:
+
+Purpose for ctype.h: 
+
+The ctype.h header file in C provides functions and macros for classifying and converting characters.
+
+Headers: 
+
+Include #include <ctype.h> at the beginning of your C program to use these functions and macros.
+
+Functions:
+
+Character Classification Functions: 
+
+These functions (isalpha(), isdigit(), islower(), isupper(), ispunct(), etc.) determine the type of a character based on its ASCII value.
+Character Conversion Functions: These functions (tolower(), toupper()) convert characters between lowercase and uppercase forms.
+
+Usage:
+
+Character Classification: You can use isalpha(), isdigit(), islower(), isupper(), ispunct(), etc., to check if a character belongs to a specific category (alphabetic, numeric, lowercase, uppercase, punctuation).
+Character Conversion: tolower() and toupper() functions convert characters to lowercase or uppercase, respectively, if possible; otherwise, they return the character unchanged.
+
+
+-------------------------------table -----------------------------------------
+
+Function	Description
+
+isalpha(int c)-	Checks if c is an alphabetic character (a-z, A-Z). Returns non-zero (true) or 0 (false).
+islower(int c)-	Checks if c is a lowercase alphabetic character (a-z). Returns non-zero (true) or 0 (false).
+isupper(int c)-	Checks if c is an uppercase alphabetic character (A-Z). Returns non-zero (true) or 0 (false).
+isdigit(int c)-	Checks if c is a decimal digit (0-9). Returns non-zero (true) or 0 (false).
+ispunct(int c)-	Checks if c is a punctuation character. Returns non-zero (true) or 0 (false).
+tolower(int c)-	Converts c to lowercase if it is an uppercase letter (A-Z). Otherwise, returns c unchanged.
+toupper(int c)-	Converts c to uppercase if it is a lowercase letter (a-z). Otherwise, returns c unchanged.
+
+---------------------------------------------------------------------------
+
+--------------------------------vs code - vali.c------------------
+
+
+Explanation:
+
+1.Include Headers:
+
+The program includes <stdio.h> for standard input/output operations and <ctype.h> for character handling functions.
+
+2.Main Function:
+
+Initialization: Defines an integer variable ch and assigns it the ASCII value of character 'A'.
+
+3.Function Calls:
+
+isalpha(ch): Checks if ch is an alphabetic character (a-z or A-Z). It prints 1 if true ('A' is alphabetic), otherwise 0.
+islower(ch): Checks if ch is a lowercase alphabetic character (a-z). Prints 0 because 'A' is uppercase.
+isupper(ch): Checks if ch is an uppercase alphabetic character (A-Z). Prints 1 because 'A' is uppercase.
+isdigit(ch): Checks if ch is a digit (0-9). Prints 0 because 'A' is not a digit.
+ispunct(ch): Checks if ch is a punctuation character. Prints 0 because 'A' is not a punctuation character.
+tolower(ch): Converts ch to lowercase if it is an uppercase letter. Prints 'a'.
+toupper(ch): Converts ch to uppercase if it is a lowercase letter (converted from previous tolower()). Prints 'A'.
+
+4.Output:
+
+Each printf() statement displays the result of the corresponding function call.
+
+
+
+8.6 String Conversion
+
+
+In C programming, string conversion refers to the process of converting between strings and other data types, such as integers or floating-point numbers. Here's a brief explanation of each function involved in string conversion:
+
+8.6.1. itoa
+
+Definition: 
+
+itoa (Integer to ASCII) converts an integer to a string representation in C.
+
+----------------------------syntax-------------------
+
+itoa(value, buffer, base);
+
+-------------------------------------------
+
+8.6.2. atoi
+
+Definition: 
+
+atoi (ASCII to Integer) converts a string representation of an integer to an actual integer value.
+
+----------------------------syntax-------------------
+
+atoi(string_value);
+
+-------------------------------------------
+
+
+8.6.3. sprintf
+
+Definition: 
+
+sprintf (String printf) formats and stores a series of characters and values in a string buffer.
+
+----------------------------syntax-------------------
+
+sprintf(buffer, format, value);
+
+-------------------------------------------
+
+--------------------------------vs code - conv.c ------------------------
+
+
+Explanation:
+
+1.Include Headers:
+
+The program includes <stdio.h> for standard input/output operations and <stdlib.h> for itoa and atoi functions.
+
+2.Main Function:
+
+itoa Example:
+
+int num1 = 123;
+char buffer1[20];
+itoa(num1, buffer1, 10);
+Converts the integer 123 to a string using itoa with base 10.
+printf("Integer to string using itoa: %s\n", buffer1);
+Prints the result: "Integer to string using itoa: 123".
+
+atoi Example:
+
+char str[] = "456";
+int num2 = atoi(str);
+Converts the string "456" to an integer using atoi.
+printf("String to integer using atoi: %d\n", num2);
+Prints the result: "String to integer using atoi: 456".
+
+sprintf Example:
+
+char buffer3[50];
+int num3 = 789;
+sprintf(buffer3, "The number is: %d", num3);
+Formats the integer 789 into a string "The number is: 789" using sprintf.
+printf("Formatted string using sprintf: %s\n", buffer3);
+Prints the result: "Formatted string using sprintf: The number is: 789".
+
+3.Output:
+
+Each printf statement displays the result of the corresponding operation.
+
+
+
+
+
+
