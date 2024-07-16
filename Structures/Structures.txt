@@ -1,0 +1,345 @@
+9 Structures
+
+In C programming, a struct (short for structure) is a user-defined data type that allows you to combine different data types into a single unit. Structures are particularly useful for grouping related data together. Here's how to define and use structures in C, including the syntax and a simple example program.
+
+9.1 Declaration of Structure
+
+To define a structure, you use the struct keyword followed by the structure name and the structure members enclosed in curly braces.
+
+-----------------------------------syntax----------------------------------
+
+struct structure_name {
+    data_type member1;
+    data_type member2;
+    // More members...
+};
+
+struct: Keyword used to declare a structure.
+structure_name: Name of the structure (optional but recommended for clarity).
+member1, member2, ... : Members of the structure, each with its own data type.
+---------------------------------------------------------------------------
+
+
+9.2 Variable declaration
+
+Once a structure is declared, you can declare variables of that structure type. There are two main ways to do this:
+
+9.2.1 Separate Declaration:
+
+Declare the structure first and then declare variables of that structure type.
+
+-----------------------------------syntax----------------------------------
+
+// Declare variables of the structure type
+struct structure_name variable1, variable2;
+
+---------------------------------------------------------------------------
+
+9.2.2 Combined Declaration:
+
+Declare the structure and variables of that structure type in one step.
+
+-----------------------------------syntax----------------------------------
+
+struct structure_name {
+    data_type member1;
+    data_type member2;
+    // More members...
+} variable1, variable2;
+
+
+---------------------------------------------------------------------------
+
+
+----------------------------vs code - struct.c----------------------------
+
+Explanation:
+
+
+1.Include Header File:
+
+#include <stdio.h>: Include the standard input-output header file.
+
+2.Define Structure:
+
+struct Student: Define a structure named Student with members name, age, gpa, a, and b.
+
+3.coords: Declare a variable coords of type struct Student.
+Enter main Function:
+
+Execution starts from the main function.
+
+4.Declare student1 Variable:
+
+struct Student student1;: Declare a variable student1 of type struct Student.
+
+5.Input Student's Name:
+
+printf("Enter student's name: ");: Print the prompt for the student's name.
+fgets(student1.name, 50, stdin);: Read up to 49 characters from the standard input and store them in student1.name.
+
+6.Input Student's Age:
+
+printf("Enter student's age: ");: Print the prompt for the student's age.
+scanf("%d", &student1.age);: Read an integer from the standard input and store it in student1.age.
+
+7.Input Student's GPA:
+
+printf("Enter student's GPA: ");: Print the prompt for the student's GPA.
+scanf("%f", &student1.gpa);: Read a floating-point number from the standard input and store it in student1.gpa.
+
+8.Display Student Information:
+
+printf("\nStudent Information:\n");: Print the header for the student information.
+printf("Name: %s", student1.name);: Print the student's name.
+printf("Age: %d\n", student1.age);: Print the student's age.
+printf("GPA: %.2f\n\n", student1.gpa);: Print the student's GPA to two decimal places.
+
+9.Assign and Print Coordinates:
+
+coords.a = 10;: Assign the value 10 to coords.a.
+coords.b = 20;: Assign the value 20 to coords.b.
+printf("The coordinate a: %d\n", coords.a);: Print the value of coords.a.
+printf("The coordinate b: %d", coords.b);: Print the value of coords.b.
+
+10.End of main Function:
+
+return 0;: The main function returns 0, indicating successful execution, and the program terminates.
+
+
+
+9.3 Define typedef structures
+
+In C, typedef is used to create alias names for data types, which can make code more readable and easier to manage. When used with structures, typedef can simplify the syntax for declaring variables of that structure type.
+
+In C programming, the dot operator (.) is used to access members of a structure . It allows you to refer to a specific variable or field with the syntax of outer-structure.inner-structure.member.
+
+------------------------------syntax-----------------------------------
+
+typedef struct {
+    data_type member1;
+    data_type member2;
+    // More members...
+} alias_name;
+
+-----------------------------------------------------------------------
+
+------------------------------example vs code typedef.c------------------
+
+Explanation:
+
+1.Structure Definitions:
+
+typedef struct { int x; int y; } Point;
+typedef struct { Point center; float radius; } Circle;
+typedef struct { Point topLeft; Point bottomRight; } Rectangle;
+
+2.Main Function Execution:
+
+3.Circle Initialization:
+
+Circle myCircle; // Declares a variable myCircle of type Circle.
+myCircle.center.x = 10; // Sets the x-coordinate of the circle's center.
+myCircle.center.y = 15; // Sets the y-coordinate of the circle's center.
+myCircle.radius = 5.5; // Sets the radius of the circle.
+
+4.Rectangle Initialization:
+
+Rectangle myRect; // Declares a variable myRect of type Rectangle.
+myRect.topLeft.x = 3; // Sets the x-coordinate of the top-left corner of the rectangle.
+myRect.topLeft.y = 8; // Sets the y-coordinate of the top-left corner of the rectangle.
+myRect.bottomRight.x = 15; // Sets the x-coordinate of the bottom-right corner of the rectangle.
+myRect.bottomRight.y = 20; // Sets the y-coordinate of the bottom-right corner of the rectangle.
+
+5.Printing Circle Details:
+
+printf("Circle Center: (%d, %d)\n", myCircle.center.x, myCircle.center.y); // Prints the coordinates of the circle's center.
+printf("Circle Radius: %.2f\n", myCircle.radius); // Prints the radius of the circle.
+
+6.Printing Rectangle Details:
+
+printf("Rectangle Top-Left: (%d, %d)\n", myRect.topLeft.x, myRect.topLeft.y); // Prints the coordinates of the top-left corner of the rectangle.
+printf("Rectangle Bottom-Right: (%d, %d)\n", myRect.bottomRight.x, myRect.bottomRight.y); // Prints the coordinates of the bottom-right corner of the rectangle.
+
+7.End of Program:
+
+return 0; // Indicates successful execution of the program.
+
+
+9.4 Using Pointers in structures
+
+In C programming, structures (struct) and pointers (*) are fundamental concepts for organizing and manipulating data efficiently. Let's delve into the concepts used in your example without focusing on the specific code implementation.
+
+9.4.1 Structures (struct)
+
+Definition: 
+
+A structure (struct) is a composite data type that allows you to group together variables of different types under a single name.
+
+Declaration: 
+
+After defining a structure, you can declare variables of that structure type, just like primitive data types.
+
+
+-----------------------syntax---------------------------------------
+
+typedef struct {
+   data_type *pointer_variable;   
+} alias_name;
+
+
+------------------------------------------------------------------
+
+---------------------------------------------------------------------
+
+difference table for pointer and array in structures in drawio.com
+
+---------------------------------------------------------------------
+
+
+------------------------------vs code strptr.c ------------------------------------
+
+
+Explanation:
+
+1.Structure Definitions and Initializations:
+
+Two structures are defined using typedef: 
+
+ArrType (holding an array of characters) and PtrType (holding a pointer to a character).
+Variables arr and ptr of these respective types are initialized with initial values.
+
+2.Printing Initial Values:
+
+printf("\nArray string is a %s", arr.str); prints the initial value of arr.str, which is "Bad ".
+printf("\nPointer string is a %s", ptr.str); prints the initial value of ptr.str, which is "Good ".
+
+3.Modifying arr.str:
+
+Individual characters of arr.str are modified to spell "Idea" (arr.str[0] = 'I';, arr.str[1] = 'd';, etc.).
+
+4.Printing Modified arr.str:
+
+printf("%s\n", arr.str); prints the modified arr.str, which now contains "Idea".
+
+5.Modifying ptr.str:
+
+ptr.str = "Idea"; assigns a new string "Idea" to ptr.str.
+
+6.Printing Modified ptr.str:
+
+printf("%s\n", ptr.str); prints the modified ptr.str, which now also contains "Idea".
+
+7.Program Completion:
+
+The main() function completes execution, returning 0 to indicate successful program completion.
+
+
+9.5 Pointing to structures
+
+Pointing to structures in C involves using pointers to reference and manipulate data stored in structures. This capability is particularly useful for dynamically allocating memory, passing structures between functions efficiently, and accessing nested structures or arrays within structures. 
+
+The arrow operator (->) in C is used primarily for accessing members of a structure through a pointer to that structure or union. Here are two key points about the arrow operator:
+
+
+-------------------------------differance table for -> and .(dot) drawio.com-------
+
+
+-----------------------------syntax------------------------------------
+
+pointer->member
+
+pointer: Should be a pointer to a structure type.
+member: Represents a member of the structure that pointer points to.
+
+--------------------------------------------------------------------------
+
+----------------------------vs code mem.c ----------------------------
+
+Explanation:
+
+1.Main Function Start:
+
+The program starts with including necessary headers (stdio.h) and defines a structure Point with members x and y.
+main() function begins.
+
+2.Structure Variable Declaration and Initialization:
+
+A structure variable myPoint of type Point is declared and initialized with values 10 for x and 20 for y.
+
+3.Pointer Declaration and Initialization:
+
+A pointer ptrPoint to a Point structure is declared and initialized to point to myPoint using the address-of operator (&).
+
+4.Printing Original Values:
+
+The original values of myPoint (x = 10 and y = 20) are printed using printf.
+
+5.Modifying Structure Members via Pointer:
+
+Structure members x and y are modified indirectly through ptrPoint using the arrow operator (->).
+ptrPoint->x is set to 15.
+ptrPoint->y is set to 25.
+
+6.Printing Modified Values:
+
+The modified values of myPoint (x = 15 and y = 25) are printed using printf.
+
+7.Program Completion:
+
+main() function returns 0, indicating successful program execution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
