@@ -291,46 +291,309 @@ main() function returns 0, indicating successful program execution.
 
 
 
+9.6 Passing structures to functions
+
+Passing structures to functions in C can be done in two primary ways: by value and by reference (using pointers). Here’s a brief overview, along with the syntax and a simple example program for each method:
+
+9.6.1 Passing Structures by Value
+
+When you pass a structure by value, a copy of the structure is made. Any changes to the structure inside the function do not affect the original structure.
+
+--------------------------------synatx------------------------------
+
+ void functionName(structType structVariable);
+
+---------------------------------------------------------------------
+
+--------------------------------vs code - structvalue.c ---------------------
+
+Explanation:
+
+1.Include Standard I/O Library:
+
+The program starts by including the standard input-output library stdio.h.
+
+2.Define Structure:
+
+A structure named Point is defined with two integer members: x and y.
+
+3.Define Function:
+
+A function printPoint is defined that takes a Point structure by value and prints its x and y members.
+
+4.Main Function Begins:
+
+The main() function begins execution.
+
+5.Declare and Initialize Structure Variable:
+
+A Point structure variable myPoint is declared and initialized with x set to 10 and y set to 20.
+
+6.Call Function with Structure by Value:
+
+The printPoint function is called, passing myPoint as an argument. This creates a copy of myPoint inside the printPoint function.
+
+7.Function Execution (printPoint):
+
+Inside the printPoint function, the x and y members of the passed Point structure are printed. Since the structure is passed by value, the original myPoint remains unchanged.
+
+8.Main Function Resumes:
+
+Control returns to the main() function after the printPoint function completes execution.
+
+9.End of Program:
+
+The main() function returns 0, indicating successful completion of the program.
+
+
+9.6.2 Passing Structures by Reference 
+
+When you pass a structure by reference, you pass a pointer to the structure. This way, any changes to the structure inside the function will affect the original structure.
+
+
+-------------------------------------syntax-----------------------
+
+void functionName(structType *structPointer);
+
+------------------------------------------------------------------
+
+--------------------------------vs code - structref.c ---------------------
+
+Explanation:
+
+1.Include Standard I/O Library:
+
+The program starts by including the standard input-output library stdio.h.
+
+2.Define Structure:
+
+A structure named Point is defined with two integer members: x and y.
+
+3.Define Function:
+
+A function modifyPoint is defined that takes a pointer to a Point structure and modifies its x and y members.
+
+4.Main Function Begins:
+
+The main() function begins execution.
+
+5.Declare and Initialize Structure Variable:
+
+A Point structure variable myPoint is declared and initialized with x set to 10 and y set to 20.
+
+6.Print Original Values:
+
+The original values of myPoint (x = 10 and y = 20) are printed using printf.
+
+7.Call Function with Structure by Reference:
+
+The modifyPoint function is called, passing the address of myPoint (&myPoint) as an argument.
+
+8.Function Execution (modifyPoint):
+
+Inside the modifyPoint function, the x and y members of the Point structure 
+9.pointed to by p are modified:
+p->x is set to 15.
+p->y is set to 25.
+
+10.Main Function Resumes:
+
+Control returns to the main() function after the modifyPoint function completes execution.
+
+11.Print Modified Values:
+
+The modified values of myPoint (x = 15 and y = 25) are printed using printf.
+
+12.End of Program:
+
+The main() function returns 0, indicating successful completion of the program.
+
+
+9.7 Union
+
+Defining a structure (struct) and a union (union) in C allows you to group different types of variables under a single name. However, they are used in different scenarios depending on whether you need to store multiple data items at the same time or just one data item at a time. 
+
+A union in C is a user-defined data type that allows storing different data types in the same memory location. Unions provide an efficient way of using the same memory location for multiple purposes.
+
+
+-------------------------------syntax----------------------------------
+
+typedef union {
+    // Members of the union
+    int member1;
+    float member2;
+    char member3;
+} UnionName;
+
+--------------------------------------------------------------------
+
+----------------------------------------vs code - union.c ----------------
+
+Explanation:
+
+1.Include Header:
+
+The program starts by including the standard input-output header file #include <stdio.h>.
+
+2.Define DataUnion:
+
+The typedef union DataUnion is defined to hold three types of data: an integer (intValue), a float (floatValue), and a char (charValue).
+
+3.Define DataStruct:
+
+The typedef struct DataStruct is defined to hold the same three types of data: an integer (intValue), a float (floatValue), and a char (charValue).
+
+4.Main Function:
+
+The main function begins execution.
+
+5.Declare Variables:
+
+Two variables, myUnion of type DataUnion and myStruct of type DataStruct, are declared.
+
+6.Assign Values to Union:
+
+The integer value 42 is assigned to myUnion.intValue.
+
+7.Assign Values to Struct:
+
+The integer value 42 is assigned to myStruct.intValue.
+The float value 3.14f is assigned to myStruct.floatValue.
+The char value 'A' is assigned to myStruct.charValue.
+
+8.Print Union Memory Locations:
+
+The memory locations of the union members (intValue, floatValue, and charValue) are printed. These addresses will be the same, showing that all members of a union share the same memory space.
+
+9.Print Struct Memory Locations:
+
+The memory locations of the struct members (intValue, floatValue, and charValue) are printed. These addresses will be different, showing that each member of a structure has its own separate memory space.
+
+10.Return Statement:
+
+The main function ends and returns 0, indicating successful execution.
 
 
 
+9.8 Understanding of memory allocation
 
 
+9.8.1 malloc
+
+Allocates a block of memory of a specified size. The memory is uninitialized.
+
+---------------------------synatx---------------------------------
+
+void* malloc(size_t size);
+
+-------------------------------------------------------------------
 
 
+9.8.2 calloc
+
+Allocates a block of memory for an array of elements and initializes all bytes to zero.
+
+---------------------------synatx---------------------------------
+
+void* calloc(size_t num, size_t size);
+
+-------------------------------------------------------------------
 
 
+9.8.3 free
 
+Deallocates the memory previously allocated by malloc or calloc.
 
+---------------------------synatx---------------------------------
 
+void free(void *ptr);
 
+-------------------------------------------------------------------
 
+9.8.4 Size_t & %zu
 
+Definition: 
 
+size_t is an unsigned integer type used to represent sizes and counts in memory. It is commonly used for array indexing and loop counting.
 
+---------------------------synatx---------------------------------
 
+size_t variableName;
 
+-------------------------------------------------------------------
 
+When using printf or similar functions to output a size_t value, %zu should be used to avoid type mismatch issues and ensure proper formatting.
 
+----------------------------------------vs code - alloc.c ----------------
 
+Explanation:
 
+1.Include Header Files:
 
+#include <stdio.h>: Includes the standard I/O library for input and output functions.
+#include <stdlib.h>: Includes the standard library for dynamic memory allocation functions (malloc, calloc, free).
 
+2.Main Function Begins:
 
+int main() {: Starts the definition of the main function.
 
+3.Declare Variables:
 
+int num = 10;: Initializes an integer variable num with the value 10.
+int *ptr;: Declares a pointer ptr to an integer.
 
+4.Use sizeof to Determine Size:
 
+printf("Size of int: %zu bytes\n", sizeof(int));: Prints the size of an int in bytes using the %zu format specifier to correctly display size_t values.
 
+5.Allocate Memory Using malloc:
 
+ptr = (int*) malloc(sizeof(int));: Allocates memory for one int and assigns the pointer to ptr.
+if (ptr == NULL) {: Checks if memory allocation was successful.
+printf("Memory allocation failed using malloc\n");: Prints an error message if allocation failed.
+return 1;: Exits the program with an error code 1.
 
+6.Assign and Print Value Using malloc:
 
+*ptr = num;: Assigns the value of num to the allocated memory.
+printf("Value at allocated memory using malloc: %d\n", *ptr);: Prints the value stored in the allocated memory.
 
+7.Free Allocated Memory:
 
+free(ptr);: Frees the memory allocated by malloc.
+ptr = NULL;: Sets the pointer to NULL to avoid a dangling pointer.
 
+8.Allocate Memory Using calloc:
 
+int *arr = (int*) calloc(5, sizeof(int));: Allocates memory for an array of 5 integers, initializing all elements to 0, and assigns the pointer to arr.
+if (arr == NULL) {: Checks if memory allocation was successful.
+printf("Memory allocation failed using calloc\n");: Prints an error message if allocation failed.
+return 1;: Exits the program with an error code 1.
 
+9.Print Initial Values from calloc:
 
+printf("Values in allocated array using calloc:\n");: Prints a header for the values.
+for (int i = 0; i < 5; i++) {: Loops through the array indices.
+printf("arr[%d] = %d\n", i, arr[i]);: Prints the initial values (which should be 0).
+
+10.Assign Values to the Array:
+
+for (int i = 0; i < 5; i++) {: Loops through the array indices.
+arr[i] = i * 10;: Assigns new values to the array elements.
+
+11.Print Updated Values from calloc:
+
+printf("Updated values in allocated array using calloc:\n");: Prints a header for the updated values.
+for (int i = 0; i < 5; i++) {: Loops through the array indices.
+printf("arr[%d] = %d\n", i, arr[i]);: Prints the updated values.
+
+12.Free Allocated Memory:
+
+free(arr);: Frees the memory allocated by calloc.
+
+13.End of Main Function:
+
+return 0;: Exits the program with a success code 0.
 
 
 

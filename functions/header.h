@@ -1,4 +1,4 @@
-// SquareArea.h
+// header.h
 
 // Function declaration
 double calculateSquareArea(double sideLength);

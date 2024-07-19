@@ -6,7 +6,7 @@ int square();
 
 // Main function
 int main() {
-    // Call the greet function to print the first "Hello, World!"
+    // Call the greet function to print the first "Hello, World!" 
     greet();
     
     // Call the square function and store the return value in num
