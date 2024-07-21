@@ -437,10 +437,6 @@ Reads a single character from a specified file stream.Ideal for character-by-cha
 
 -----------------------------------syntax---------------
 
-
-
-
-
 int fgetc(FILE *stream);
 
 ----------------------------------------------------------
@@ -582,33 +578,166 @@ The file is closed.
 
 
 
+10.7 C Errors 
+
+
+Predefined Error Codes in errno.h:
+
+The errno.h header file contains definitions for a variety of error codes that can be set by system calls and library functions when an error occurs. Each error code has a unique integer value and a corresponding symbolic name.
+
+
+10.7.1 perror
+
+
+Purpose: 
+
+The perror function prints a descriptive error message to the standard error stream  
+
+Usage:
+
+It is used to provide a human-readable message explaining why a certain error occurred.The message printed by perror includes the string passed to it, followed by a colon, a space, and the textual representation.
+
+-------------------------------syntax-----------------------------------------
+
+void perror(const char *s);
+
+---------------------------------------------------------------------------
+
+
+10.7.2 strerror
+
+
+Purpose: 
+
+The strerror function returns a pointer to the textual representation of the error code passed to it.
+
+Usage:
+
+It is used to convert an error number (errno) into a human-readable string.This is particularly useful for logging or displaying error messages programmatically without using perror.
+
+
+-------------------------------syntax-----------------------------------------
+
+char *strerror(int errnum);
+
+---------------------------------------------------------------------------
+
+
+----------------------------vs code error.c---------------------------
+
+Explanation:
+
+1.Include Headers:
+
+The program includes necessary header files: stdio.h for standard I/O functions, errno.h for error handling, and string.h for string functions.
+
+2.Declare Variables:
+
+A FILE pointer file is declared to handle the file operations.
+An integer i is declared for use in the loop later.
+
+3.Attempt to Open a File:
+
+The fopen function is called to open a file named "no.file" in read mode ("r").
+The result is assigned to the file pointer.
+
+4.Check File Opening Result:
+
+If the file is successfully opened (file != NULL), it prints "File opened".
+If the file is not successfully opened (file == NULL), it prints an error message using perror("Error"). This prints the string "Error" followed by a description of the error based on the current errno value (likely "No such file or directory" in this case).
+
+5.Loop to Print Error Messages:
+
+A for loop runs from 0 to 19.
+For each value of i, it prints the error number (i) and its corresponding error message using strerror(i).
+strerror(i) returns a string that describes the error code i.
+
+6.End of Program:
+
+The program ends and returns 0 to indicate successful execution.
 
 
 
+10.8 C Date and Time
+
+The time.h header file in C provides various functions and types to manipulate and format time and date values. It includes functions for retrieving the current time, converting between different time representations, and formatting time and date strings.
+
+1.time_t:
+
+Standard Data Type: 
+
+time_t is a standard type defined by the C standard library, not a user-defined type. It is designed to be portable across different systems, providing a consistent way to represent and manipulate time.
+
+Type: 
+
+time_t is an arithmetic data type, typically defined as a long or an int on many systems, but the exact implementation can vary. It represents the number of seconds elapsed since the Unix epoch (January 1, 1970, at midnight UTC).
 
 
+---------------table-Key Functions in time.h----------------------------------------
+
+Components of tm Structure
+
+The tm structure holds the date and time broken down into its components. It is defined in time.h as follows:
+
+struct tm {
+    int tm_sec;   // Seconds [0, 60] (including leap second)
+    int tm_min;   // Minutes [0, 59]
+    int tm_hour;  // Hour [0, 23]
+    int tm_mday;  // Day of the month [1, 31]
+    int tm_mon;   // Month of the year [0, 11] (January = 0)
+    int tm_year;  // Years since 1900
+    int tm_wday;  // Day of the week [0, 6] (Sunday = 0)
+    int tm_yday;  // Day of the year [0, 365]
+    int tm_isdst; // Daylight saving time flag
+};
 
 
+-------------------table- tm structure----------------------------------------------
 
 
+Explanation:
 
+1.Include Header Files:
 
+#include <stdio.h>: Includes the Standard I/O library.
+#include <time.h>: Includes the time library for time functions.
 
+2.Function main:
 
+Variable Declarations:
 
+time_t rawtime;: Variable to store the raw time in seconds.
+struct tm *timeinfo;: Pointer to a tm structure for storing local and UTC time information.
+char buffer[80];: Character array to hold the formatted time string.
 
+3.Get the Current Time:
 
+time(&rawtime);: Fetches the current calendar time (seconds since the epoch) and stores it in rawtime.
 
+4.Convert to Local Time:
 
+timeinfo = localtime(&rawtime);: Converts rawtime to a tm structure representing the local time.
 
+5.Print Local Time Using asctime:
 
+printf("Current local time: %s", asctime(timeinfo));: Converts the tm structure to a string and prints the local time in a readable format.
 
+6.Format Time Using strftime:
 
+strftime(buffer, sizeof(buffer), "Formatted date and time: %Y-%m-%d %H:%M:%S", timeinfo);: Formats the local time into a custom string format and stores it in buffer.
+printf("%s\n", buffer);: Prints the formatted date and time.
 
+7.Get UTC Time:
 
+timeinfo = gmtime(&rawtime);: Converts rawtime to a tm structure representing Coordinated Universal Time (UTC).
 
+8.Print UTC Time Using asctime:
 
+printf("Current UTC time: %s", asctime(timeinfo));: Converts the UTC tm structure to a string and prints the UTC time in a readable format.
 
+9.Return Statement:
+
+return 0;: Ends the main function and returns 0 to indicate successful completion.
 
 
 
