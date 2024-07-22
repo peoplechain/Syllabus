@@ -446,6 +446,7 @@ int fgetc(FILE *stream);
 
 Reads a string from a specified file stream, up to a newline or specified length.Useful for reading lines of text from a file.
 
+
 -----------------------------------syntax---------------
 
 fgets(buffer, int n, FILE *stream);
@@ -738,6 +739,220 @@ printf("Current UTC time: %s", asctime(timeinfo));: Converts the UTC tm structur
 9.Return Statement:
 
 return 0;: Ends the main function and returns 0 to indicate successful completion.
+
+
+
+
+10.9 Genarating random numbers
+
+
+The stdlib.h library in C provides a range of functions for performing general utility operations such as memory allocation, process control, conversions, and others. Two important functions in this library are rand and srand.
+
+1.rand Function
+
+Purpose: The rand function generates pseudo-random numbers.
+
+Range: It returns an integer value between 0 and RAND_MAX (a constant defined in <stdlib.h>).
+
+Deterministic Sequence: Without proper seeding, rand produces the same sequence of numbers each time the program is run.
+
+---------------------------------------syntax-----------------------------
+
+int rand();
+
+---------------------------------------------------------------------------
+
+
+2.srand Function
+
+
+Purpose: The srand function sets the starting point for producing a series of pseudo-random integers by rand.
+
+Seeding: By providing a different seed value (often the current time), you ensure that rand generates a different sequence of numbers on each run.
+
+Initialization: If srand is not called before rand, the generator behaves as if srand(1) was called, leading to a predictable sequence of numbers.
+
+---------------------------------------syntax-----------------------------
+
+void srand(unsigned int seed);
+
+---------------------------------------------------------------------------
+
+-----------------------------vs code rand.c -----------------------------------
+
+Explanation:
+
+1.Include Header Files:
+
+The program starts by including the necessary header files: <stdio.h>, <stdlib.h>, and <time.h>.
+
+2.Function main:
+
+The main function is defined and begins execution.
+
+3.Variable Declaration:
+
+int i; is declared for use in the loop that generates random numbers.
+
+4.Seed the Random Number Generator:
+
+srand(time(NULL)); seeds the random number generator with the current time. This ensures that the random numbers generated will be different each time the program runs.
+
+5.Print Header:
+
+printf("Three-digit random numbers:\n"); prints a header message to the console.
+
+6.Generate and Print Three-Digit Random Numbers:
+
+A for loop runs 5 times to generate and print 5 three-digit random numbers.
+
+7.Inside the Loop:
+
+Step 1: Generate a raw random number using rand().
+int raw_random_number = rand();
+Step 2: Apply the modulus operation to limit the range to 0-899.
+int limited_random_number = raw_random_number % 900;
+Step 3: Shift the range to 100-999.
+int random_number = limited_random_number + 100;
+Print the final three-digit random number.
+printf("%d\n", random_number);
+
+8.Loop Iterations:
+
+Steps 7.1 to 7.4 are repeated for each iteration of the loop (5 times in total).
+
+9.End of Program:
+
+After the loop completes, the program reaches the return 0; statement, signaling successful completion of the program.
+
+
+
+10.10 Windows API (WinAPI)
+
+Definition: 
+The Windows API (WinAPI) is a set of Microsoft Windows operating system interfaces that allows applications to interact with the operating system and other software. It provides a wide range of functions for performing tasks such as managing windows, handling user input, accessing files, and more.
+
+WinAPI is used in native Windows applications written in languages like C or C++ to create robust, efficient applications that can interact directly with the Windows operating system.
+
+10.10.1 windows.h:
+
+Definition: windows.h is a header file that includes declarations for all the functions, constants, and data types provided by the Windows API. It provides access to various Windows functions for managing windows, handling messages, working with files, and more.
+
+Purpose: It allows developers to interact with the Windows operating system by including necessary declarations for WinAPI functions and structures.
+
+10.10.2 WINAPI:
+
+Definition: WINAPI is a macro used to specify the calling convention for functions in the Windows API.
+
+
+10.10.3 WinMain:
+
+Definition: WinMain is the entry point for a Windows application. It is the function that the Windows operating system calls to start a Windows-based application.
+
+Purpose: It is analogous to the main function in console applications but is specifically used for Windows GUI applications.
+
+
+10.10.4 HINSTANCE hInstance:
+
+Definition: HINSTANCE is a handle to an instance of the application. It uniquely identifies the application’s executable file and provides context for resource management.
+
+
+10.10.5 HINSTANCE hPrevInstance:
+
+Definition: HINSTANCE hPrevInstance is a handle to the previous instance of the application. In modern versions of Windows, this parameter is always NULL because multiple instances of a Windows application do not require this handle.
+
+
+10.10.6 LPSTR lpCmdLine:
+
+Definition: LPSTR is a pointer to a string that contains the command-line arguments passed to the application.
+
+Purpose: It allows the application to receive and process command-line arguments when it starts.
+
+
+10.10.7 int nCmdShow:
+
+Definition: nCmdShow is an integer that specifies how the application window should be shown (e.g., minimized, maximized, or normal).
+
+Purpose: It provides instructions on how to display the application's main window based on the user's or system's preferences.
+
+
+10.10.8 MB_OK | MB_ICONINFORMATION:
+
+Definition: These are flags used in the MessageBox function to specify the type of buttons and icons to display in the message box.
+MB_OK adds an OK button to the message box.
+MB_ICONINFORMATION displays an information icon.
+
+Purpose: To customize the appearance and functionality of the message box, making it suitable for displaying information messages to the user.
+
+
+-----------------------------syntax for dialog box------------------------
+
+
+#include <windows.h>
+
+// Entry point for the application
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+    // Display a message box with a simple message
+    MessageBox(
+        NULL,               // hWnd: Handle to the owner window (NULL if no owner)
+        "Message user want to print",    // lpText: The message to be displayed
+        "Message Box Title",// lpCaption: The title of the message box
+        MB_OK | MB_ICONINFORMATION // uType: The buttons and icons to be included in the message box
+    );
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------
+
+
+----------------------------------vs code win.c-----------------------------
+
+Explanation:
+
+1.Include the Windows Header File:
+
+#include <windows.h>: This line includes the Windows API header file, which contains declarations for all the functions and data types used in Windows programming.
+
+2.Entry Point for the Application:
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow):
+This is the entry point for a Windows application. It is similar to the main function in console applications.
+
+3.Parameters:
+hInstance: Handle to the current instance of the application.
+hPrevInstance: Handle to the previous instance of the application (always NULL in modern Windows).
+lpCmdLine: Pointer to a null-terminated string specifying the command line for the application.
+nCmdShow: Specifies how the window is to be shown (ignored in this code).
+
+4.Display a Message Box:
+
+MessageBox(NULL, "Hello, World!", "Message Box Title", MB_OK | MB_ICONINFORMATION);:
+This function call creates and displays a message box.
+
+5.Parameters:
+
+NULL: No owner window.
+"Hello, World!": The text message to be displayed in the message box.
+"Message Box Title": The title of the message box.
+MB_OK | MB_ICONINFORMATION: Flags that specify the contents and behavior of the message box. MB_OK creates an OK button, and MB_ICONINFORMATION displays an information icon.
+The function displays the message box and waits for the user to click the OK button.
+
+6.Return from the Application:
+
+return 0;: The application returns 0, indicating that it has completed successfully.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
