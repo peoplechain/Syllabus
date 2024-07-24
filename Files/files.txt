@@ -944,6 +944,119 @@ return 0;: The application returns 0, indicating that it has completed successfu
 
 
 
+10.11 Timer set
+
+The clock() function is part of the C standard library, defined in the <time.h> header. It provides a way to measure the processor time consumed by a program. Here are the details:
+
+10.11.1 clock() Function
+
+Purpose: The clock() function returns the number of clock ticks that have elapsed since the program started execution.
+
+
+10.11.2 clock_t Data Type
+
+Definition: clock_t is a typedef defined in <time.h>. It is an arithmetic type capable of representing times. 
+
+Purpose: This type is used to store clock tick counts returned by clock()
+
+
+----------------------------------------syntax----------------------------------------
+
+clock_t clock(void);
+
+-------------------------------------------------------------------------------------
+
+
+10.11.2 CLOCKS_PER_SEC
+
+Definition: CLOCKS_PER_SEC is a macro defined in <time.h>.
+
+Value: It represents the number of clock ticks per second. The value is implementation-defined but is typically 1,000,000 in most systems, which corresponds to microsecond granularity.
+
+Purpose: This constant allows the conversion of clock tick counts into seconds.
+
+A "clock tick" is the smallest measurable unit of time in a system, corresponding to one increment of the system's clock counter. It is used to measure time intervals, typically by the system's hardware timer.
+
+In C programming, CLOCKS_PER_SEC is a constant that defines the number of clock ticks in one second, allowing conversion between clock ticks and real time. For instance, if CLOCKS_PER_SEC is 1,000,000, then 1,000,000 clock ticks represent one second.
+
+
+-------------------------vs code timer.c -------------------------------------------
+
+Explanation:
+
+1.Initialization:
+
+The program includes necessary headers <stdio.h> for input/output functions and <time.h> for time-related functions.
+
+2.Entering main() Function:
+
+Time Tracking:
+
+The variable start is defined to store the starting time of the countdown.
+time(NULL) is called to get the current time in seconds since the Unix epoch (January 1, 1970). This value is stored in start.
+
+Message Output: The program outputs "Starting countdown...\n\n" to indicate the beginning of the countdown process.
+
+3.Countdown Loop:
+
+A for loop is used to count down from 10 to 0.
+Inside the Loop:
+The current countdown value i is printed, formatted as " - i".
+The wait(1) function is called to create a 1-second delay before the next iteration of the loop.
+
+4.wait() Function:
+
+Purpose: 
+To create a delay for a specified number of seconds (1 second in this case).
+
+Implementation:
+clock() returns the number of clock ticks elapsed since the program started.
+CLOCKS_PER_SEC is a constant representing the number of clock ticks per second.
+end_wait is calculated by adding the current clock ticks (clock()) to the number of ticks corresponding to the desired delay (seconds * CLOCKS_PER_SEC).
+The while loop runs until the current clock ticks (clock()) exceed end_wait, effectively creating a busy-wait delay.
+
+5.End of Countdown:
+
+After the loop finishes, the program gets the current time again using time(NULL) and stores it in the variable end.
+
+6.Runtime Calculation:
+
+The total runtime is calculated using difftime(end, start), which gives the difference in seconds between the start and end times.
+The result is printed, showing the total runtime of the countdown.
+
+7.Program Termination:
+
+The main() function returns 0, indicating successful execution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
