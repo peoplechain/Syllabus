@@ -1,0 +1,86 @@
+1. ASCII Character Codes
+
+Definition: 
+
+ASCII (American Standard Code for Information Interchange) is a character encoding standard used to represent text in computers and other devices that use text. It encodes 128 specified characters into seven-bit integers.
+
+Character Set: 
+
+ASCII includes 33 non-printing control characters (such as carriage return, line feed, and null character) and 95 printable characters, which include letters (both uppercase and lowercase), digits, punctuation marks, and special symbols.
+
+Usage and Compatibility: A
+
+SCII serves as the basis for most modern character encoding systems and ensures compatibility across different devices and platforms by providing a standardized way to represent text. It is especially significant in early computing and data transmission standards.
+
+-------------------------ASCII Table 0 to 128-------------------------------
+
+
+
+2. In C programming, the printf() function is used to output formatted text to the standard output (usually the screen). The format specifiers in printf() dictate how the subsequent arguments are formatted. 
+
+------------------------------printf() format specifiers table ----------------------
+
+
+
+3. In C programming, the scanf() function is used for input, reading formatted data from the standard input (usually the keyboard). It uses format specifiers to interpret the input data and store the values in the provided variable addresses. 
+
+These specifiers are used in the format string of scanf() to parse the input and store it into the corresponding variables. It's crucial to provide the correct variable addresses for each specifier, using the & operator except for strings (arrays).
+
+------------------------------scanf() format specifiers table ----------------------
+
+
+
+4.Functions for character input and output
+
+
+In C programming, several functions are available for handling character input and output. These functions are part of the C standard library, typically included via the <stdio.h> header. Below are the key functions used for character input and output.
+
+------------------------------i/o functions table ----------------------
+
+
+
+5.String functions
+
+
+
+ Here's a table format summarizing common string handling functions in C, including their syntax and descriptions. These functions are part of the C Standard Library, typically found in the <string.h> header file.
+
+------------------------------String fun
+
+ctions table ----------------------
+
+
+6.Math functions
+
+in C, typically included in the <math.h> header file. These functions cover a range of mathematical operations and are widely used in scientific and engineering applications.
+
+
+------------------------------Math functions table ----------------------
+
+
+7.Utility functions
+
+Utility functions in C, often included in the <stdlib.h> and other standard library headers, provide essential operations for tasks like memory allocation, process control, searching, sorting, and converting data types. 
+
+
+------------------------------Utility functions table ----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
