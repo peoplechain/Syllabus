@@ -12,8 +12,9 @@ Usage and Compatibility: A
 
 SCII serves as the basis for most modern character encoding systems and ensures compatibility across different devices and platforms by providing a standardized way to represent text. It is especially significant in early computing and data transmission standards.
 
--------------------------ASCII Table 0 to 128-------------------------------
-
+1.Uppercase Letters as 65 to 90
+2.Lowercase Letters as 97 to 122
+3.Digits as 48 to 57
 
 
 2. In C programming, the printf() function is used to output formatted text to the standard output (usually the screen). The format specifiers in printf() dictate how the subsequent arguments are formatted. 
@@ -52,6 +53,7 @@ ctions table ----------------------
 
 6.Math functions
 
+
 in C, typically included in the <math.h> header file. These functions cover a range of mathematical operations and are widely used in scientific and engineering applications.
 
 
@@ -64,6 +66,52 @@ Utility functions in C, often included in the <stdlib.h> and other standard libr
 
 
 ------------------------------Utility functions table ----------------------
+
+
+
+8. Diagnostic functions
+
+
+The assert in C is a diagnostic tool used to test assumptions made by the program and to identify logical errors during development. When the condition evaluated by assert is false, it generates an error message and terminates the program. This is particularly useful for catching bugs early in the development cycle by ensuring that certain conditions hold true.
+
+-------------------------------------syntax--------------------------------
+
+#include <assert.h>
+
+assert(expression);
+
+----------------------------------------------------------------------------------
+
+How assert Works:
+
+When the expression in the assert statement evaluates to false:
+
+The program prints an error message including the expression, the source file name, and the line number where the assert failed.
+The program terminates by calling abort().
+When the expression is true, the assert macro has no effect, and the program continues execution normally.
+
+
+9. Argument Functions
+
+
+The <stdarg.h> header in C provides a set of macros for handling functions with a variable number of arguments.The macros defined in <stdarg.h> allow functions to accept and process a variable number of arguments. This is achieved through the va_list type and the macros va_start, va_arg, and va_end, which manage the argument list's state and allow access to each argument.
+
+
+------------------------------Argument functions table ----------------------
+
+
+
+10.Date and Time Functions in C
+
+
+The <time.h> header provides functionality for manipulating and formatting date and time in C. Below is a comprehensive overview of the time-related functions, variables, and format specifiers used with strftime().
+
+
+------------------------------Time and Clock Functions table ----------------------
+
+------------------------------Time and Clock Variables table ----------------------
+
+------------------------------Format Specifiers table -------------------------------
 
 
 
