@@ -31,6 +31,7 @@ These specifiers are used in the format string of scanf() to parse the input and
 
 
 
+
 4.Functions for character input and output
 
 
@@ -111,14 +112,29 @@ The <time.h> header provides functionality for manipulating and formatting date 
 
 ------------------------------Time and Clock Variables table ----------------------
 
+
+
+11. All type of format specifiers for time functions
+
+strftime() uses format specifiers to format the date and time. Below is a table of common format specifiers:
+
+
 ------------------------------Format Specifiers table -------------------------------
 
 
+12. Jump functions
+
+The setjmp.h header file provides the definitions for the setjmp and longjmp functions, which facilitate non-local jumps in C. These functions are primarily used for error handling and recovery in complex programs.
 
 
+------------------------------Jump functions table -------------------------------
+
+13. Limit & float Contants
+
+In C programming, various standard libraries define constants that specify limits for fundamental data types and system-specific properties. These limits are defined in headers like <limits.h>, <float.h>, and <stdint.h>.
 
 
-
+------------------------------Limit & float Contants table -------------------------------
 
 
 
