@@ -47,9 +47,7 @@ In C programming, several functions are available for handling character input a
 
  Here's a table format summarizing common string handling functions in C, including their syntax and descriptions. These functions are part of the C Standard Library, typically found in the <string.h> header file.
 
-------------------------------String fun
-
-ctions table ----------------------
+------------------------------String functions table ----------------------
 
 
 6.Math functions
@@ -62,6 +60,7 @@ in C, typically included in the <math.h> header file. These functions cover a ra
 
 
 7.Utility functions
+
 
 Utility functions in C, often included in the <stdlib.h> and other standard library headers, provide essential operations for tasks like memory allocation, process control, searching, sorting, and converting data types. 
 
@@ -127,12 +126,13 @@ strftime() uses format specifiers to format the date and time. Below is a table 
 The setjmp.h header file provides the definitions for the setjmp and longjmp functions, which facilitate non-local jumps in C. These functions are primarily used for error handling and recovery in complex programs.
 
 
-------------------------------Jump functions table -------------------------------
+------------------------------Jump functions table 
+-------------------------------
+
 
 13. Limit & float Contants
 
 In C programming, various standard libraries define constants that specify limits for fundamental data types and system-specific properties. These limits are defined in headers like <limits.h>, <float.h>, and <stdint.h>.
-
 
 ------------------------------Limit & float Contants table -------------------------------
 
