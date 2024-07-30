@@ -187,11 +187,11 @@ Print Value of num after function call: 15.
 Return 0 from main.
 
 
-6.4 Recursive Function
+6.5 Recursive Function
 
 Recursion is a powerful concept in programming where a function calls itself directly or indirectly to solve a problem. It allows problems to be solved in simpler terms, often leading to elegant and compact code solutions.
 
-6.4.1 Recursive Function Structure
+6.5.1 Recursive Function Structure
 
 A recursive function typically consists of two parts:
 
@@ -227,13 +227,13 @@ Return the computed factorial value back to the caller.
 Print the result in main.
 
 
-6.5 Custom function headers
+6.6 Custom function headers
 
 Introduction to Custom Header Files
 
 Custom header files in C allow you to organize your code by placing function declarations, definitions, and other declarations in a separate file. This promotes modularity and reusability of code across multiple source files.
 
-6.5.1 Structure of a Custom Header File
+6.6.1 Structure of a Custom Header File
 
 A custom header file typically contains:
 
@@ -279,7 +279,7 @@ Print the area of the square using printf.
 End of the main function with return 0.
 
 
-6.6 Function Restriction
+6.7 Function Restriction
 
 
 In C programming, the static keyword can be used to restrict the visibility and accessibility of functions to the current source file. This can be useful for encapsulating functionality that should only be accessed within a specific module or file.

@@ -1,6 +1,6 @@
 4 Operations
 
-4.1 Ascii table
+4.1 Operations
 
 4.2 Binary and Decimal Conversions in C
 
@@ -34,7 +34,7 @@ Example
 Convert (65)10 into its equivalent 
 binary number
 
-drawio.com the examole pasted
+drawio.com the - example
 
 4.3 Operators in C
 

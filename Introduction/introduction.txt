@@ -27,7 +27,6 @@ Created for system programming and writing operating systems (notably UNIX).
 1.2.5 Career Opportunities: Proficiency in C is highly valued in many tech fields, offering robust career prospects
 
 1.3 Standard C Libraries
-_________________________________________________put a table if possible______________________________________________________________________________________
 
 1.stdio.h (Standard Input and Output)
 Provides functions for input and output operations, including reading from the keyboard, writing to the screen, and file handling (e.g., printf, scanf, fopen, fclose).
@@ -59,72 +58,71 @@ Provides a macro for adding diagnostics to programs (e.g., assert).
 10.errno.h (Error Handling)
 Defines macros for reporting and retrieving error conditions through error codes (e.g., errno, EDOM, ERANGE).
 
-___________________________________________________________________________________________________________________________________________________________________________________
 
 1.4 C Keywords
 
-_________________________________________________put a table if possible______________________________________________________________________________________
+
+| Keyword   | Description                                               |
+|-----------|-----------------------------------------------------------|
+| auto      | Declares automatic local variables                        |
+| break     | Exits from a loop or switch statement                     |
+| case      | Defines a branch in a switch statement                    |
+| char      | Declares a character variable                             |
+| const     | Declares a constant variable                              |
+| continue  | Skips to the next iteration of a loop                     |
+| default   | Defines the default branch in a switch                    |
+| do        | Starts a do-while loop                                    |
+| double    | Declares a double-precision floating point                |
+| else      | Defines an alternative branch in an if                    |
+| enum      | Declares an enumerated type                               |
+| extern    | Declares an external variable or function                 |
+| float     | Declares a floating point variable                        |
+| for       | Starts a for loop                                         |
+| goto      | Transfers control to a labeled statement                  |
+| if        | Starts a conditional statement                            |
+| int       | Declares an integer variable                              |
+| long      | Declares a long integer variable                          |
+| register  | Declares a register variable                              |
+| return    | Returns from a function                                   |
+| short     | Declares a short integer variable                         |
+| signed    | Declares a signed type variable                           |
+| sizeof    | Returns the size of a data type                           |
+| static    | Declares a static variable                                |
+| struct    | Declares a structure                                      |
+| switch    | Starts a switch statement                                 |
+| typedef   | Creates a new data type name                              |
+| union     | Declares a union                                          |
+| unsigned  | Declares an unsigned type variable                        |
+| void      | Declares a function with no return value                  |
+| volatile  | Declares a variable that be modified in unexpected ways   |
+| while     | Starts a while loop                                       |
 
 
-Keyword	Description
-
-auto	Declares automatic local variables
-break	Exits from a loop or switch statement
-case	Defines a branch in a switch statement
-char	Declares a character variable
-const	Declares a constant variable
-continue-Skips to the next iteration of a loop
-default	Defines the default branch in a switch
-do	Starts a do-while loop
-double	Declares a double-precision floating point
-else	Defines an alternative branch in an if
-enum	Declares an enumerated type
-extern	Declares an external variable or function
-float	Declares a floating point variable
-for	Starts a for loop
-goto	Transfers control to a labeled statement
-if	Starts a conditional statement
-int	Declares an integer variable
-long	Declares a long integer variable
-register-Declares a register variable
-return	Returns from a function
-short	Declares a short integer variable
-signed	Declares a signed type variable
-sizeof	Returns the size of a data type
-static	Declares a static variable
-struct	Declares a structure
-switch	Starts a switch statement
-typedef	Creates a new data type name
-union	Declares a union
-unsigned-Declares an unsigned type variable
-void	Declares a function with no return value
-volatile-Declares a variable that can be modified in unexpected ways
-while	Starts a while loop
-
-
-___________________________________________________________________________________________________________________________________________________________________________________
 
 
 1.5 Escape sequence
 
-_________________________________________________put a table if possible______________________________________________________________________________________
 
-\a : Alert (bell)
-\b : Backspace
-\f : Form feed
-\n : Newline
-\r : Carriage return
-\t : Horizontal tab
-\v : Vertical tab
-\\ : Backslash
-\' : Single quote
-\" : Double quote
-\? : Question mark (used to avoid trigraph sequences)
-\0 : Null character (terminating character in strings)
-\nnn : Octal representation (where nnn are octal digits)
-\xhh : Hexadecimal representation (where hh are hexadecimal digits)
 
-___________________________________________________________________________________________________________________________________________________________________________________
+| Escape Sequence | Description                                          |
+|-----------------|------------------------------------------------------|
+| \a              | Alert (bell)                                         |
+| \b              | Backspace                                            |
+| \f              | Form feed                                            |
+| \n              | Newline                                              |
+| \r              | Carriage return                                      |
+| \t              | Horizontal tab                                       |
+| \v              | Vertical tab                                         |
+| \\              | Backslash                                            |
+| \'              | Single quote                                         |
+| \"              | Double quote                                         |
+| \?              | Question mark (used to avoid trigraph sequences)     |
+| \0              | Null character (terminating character in strings)    |
+| \nnn            | Octal representation (where nnn are octal digits)    |
+| \xhh            | Hexadecimal representation                           |
+
+
+
 
 
 1.6 C compilers and editors
@@ -182,11 +180,9 @@ Output: Hello, Enn World
 1.9 Compliation process
 
 
-------------------flowchart--------------------------------------------------------------------------------
+------------------drawio--------------------------------------------------------------------------------
 
-source code -- preprocessor(substitutions file(.i))----compiler(assembly code(.s))-----assembler(obj code(.o))------linker(exe file(.exe))
 
-----------------------------------------------------------------------------------------------------------------
 
 
 

@@ -20,7 +20,8 @@ enum enumName {
 };
 
 enumName: Name of the enumeration type.
-enumeration_constants: Comma-separated list of constant identifiers (optional initializers).
+enumeration_constants: Comma-sepa
+rated list of constant identifiers (optional initializers).
 
 ------------------------------
 
@@ -109,6 +110,12 @@ Explanation:
 #ifdef DEBUG: Checks if the macro DEBUG is defined.
 printf("Debugging information\n"); is included in the program because DEBUG is defined (#define DEBUG 1).
 printf("Program continues...\n"); is always included regardless of the DEBUG macro.
+
+
+
+
+
+
 
 
 

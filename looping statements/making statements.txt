@@ -300,7 +300,7 @@ Complete Execution: Outputs the final result:
 --------------------------------------------------------------------------
 
 
-5.7 while loop
+5.8 while loop
 
 In programming, a while loop is a control flow statement that allows a block of code to be executed repeatedly based on a specified condition. It continues to execute the block as long as the condition remains true. 
 
@@ -345,7 +345,7 @@ Output: Outputs 1 2 3 4 5 followed by a newline (\n).
 
 --------------------------------------------------------------------------
 
-5.8 Do while loop
+5.9 Do while loop
 
 Definition of Do-While Loop:
 
@@ -399,9 +399,9 @@ While Loop: In a while loop, the condition is evaluated before the execution of 
 Do-While Loop: In a do-while loop, the loop body is executed at least once before the condition is evaluated. This ensures that the loop body executes at least once, regardless of the condition.
 
 
-5.9 Break, continue and goto
+5.10 Break, continue and goto
 
-5.9.1 Break Statement
+5.10.1 Break Statement
 
 Definition:
 
@@ -414,7 +414,7 @@ break;
 ----------------------------------------------------------------------
 
 
-5.9.2 Continue Statement
+5.10.2 Continue Statement
 
 Definition:
 
@@ -427,7 +427,7 @@ continue;
 ----------------------------------------------------------------------
 
 
-5.9.3 Goto Statement
+5.10.3 Goto Statement
 
 Definition:
 
