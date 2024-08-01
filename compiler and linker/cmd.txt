@@ -1,0 +1,5 @@
+gcc -c function1.c function2.c function3.c main.c
+gcc function1.o function2.o function3.o main.o -o out
+out
+gcc -c function2.c
+out

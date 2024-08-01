@@ -6,3 +6,6 @@ function print() {
 
 only generate objcet file
 only compile object file
+
+disable breadcrumb in VS code
+disable git lense 
